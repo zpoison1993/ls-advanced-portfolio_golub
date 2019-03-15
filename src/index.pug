@@ -10,6 +10,100 @@ html(lang="en")
   body
     .wrapper
       .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+        .welcome-section
+          section.hero
+            .container.hero__container
+              header.header
+                .logo ВГ
+                .header__menu
+                  nav.nav
+                    ul.nav__list
+                      - var menu = ['Главная','Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
+                      each item in menu
+                        li.nav__item
+                          a(href="").nav__link #{item}
+                .header__links
+                  ul.socials
+                    - var socials = ['insta','vk','github'];
+                    each item in socials
+                      li.socials__item
+                        a(href='').socials__link
+                          +icon(`${item}`,'socials__icon')
+
+              .hero__content
+                .user-info
+                  .user-info__desc Личный сайт<br> веб разработчика
+                  h1.user-info__name ВЛАДИМИР<br> ГОЛУБЬ
+              .hero__bottom-buttons
+                .scroll-down 
+                  .scroll-down-text Скролл
+                  a(href="").scroll-down-link
+                    +icon('scroll','scroll-down-button-svg')
+          section.about
+            .container
+              .about__left
+                .user
+                  .user__avatar
+                    +image('content/user1.jpg', 'user__avatar-pic')
+                  .user__data
+                    table.user__data-table
+                      -
+                        var data = [
+                          ['Проживаю', 'Нижний Новгород'],
+                          ['Возраст', '25 лет'],
+                          ['Родился', '27 декабря 1993']
+                        ]
+                      each row in data
+                        tr.user__data-row
+                          td.user__data-cell #{row[0]}
+                          td.user__data-cell.user__data-cell--info #{row[1]}
+              .about__right
+                .about__welcome 
+                  p Привет, меня зовут
+                .about_username Владимир Голубь
+                .about__desc
+                  p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae ad, laborum tempore magni incidunt harum fugit nostrum obcaecati pariatur ipsum omnis dolorum eligendi, exercitationem neque fuga rerum repellendus in sit.
+
+                .about__ps
+                  p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio iusto non a deleniti placeat similique tempora, nostrum quibusdam ad rem saepe asperiores architecto dolorum sint temporibus nemo quidem assumenda consectetur.
+        .triangles
+          svg.triangles__item.triangles__item--left(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(
+              points="0,0 0,100 1000,100"
+            )
+          svg.triangles__item.triangles__item--right(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(
+              points="0,100 1000,100 1000,0"
+            )    
+        section.values
+          .container.values__container
+            .values__title
+              h2.section-title Чем я могу быть полезен вам 
+              .values__desc
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus itaque optio ea debitis aspernatur aut sed provident, illum vitae eligendi, eaque totam qui porro ipsum soluta mollitia perspiciatis beatae commodi.
+            ul.user-skills
+              -
+                var skills = [
+                  ['Front-end',['HTML5','CSS3','Javascript','Jquery и Vue.js']],
+                  ['Workflow',['GIT','Terminal','Gulp','Webpack']],
+                ];
+              each item in skills
+                li.user-skills__item.skills-row                
+                    h3.skills-row__title #{item[0]}
+                    ul.skills-row__list
+                      each skill in item[1]
+                        li.skills-row__item
+                          .skill
+                            svg(viewBox="0 0 200 200" preserveAspectRatio='none').skill__shape
+                              circle(
+                                r="80" cx="100" cy="100"
+                              ).skill__circle.skill__circle--under
+                              circle(
+                                r="80" cx="100" cy="100" transform="rotate(180, 100 100)"
+                              ).skill__circle.skill__circle--above
+                              //- linear-gradient()
+                            h4.skill__title #{skill} 
+
+
+
+        
