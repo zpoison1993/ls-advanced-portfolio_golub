@@ -78,7 +78,7 @@ html(lang="en")
         section.values
           .container.values__container
             .values__title
-              h2.section-title Чем я могу быть полезен вам 
+              h2.section-title.values__title-text.section-title--small Чем я могу быть полезен вам 
               .values__desc
                 p Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus itaque optio ea debitis aspernatur aut sed provident, illum vitae eligendi, eaque totam qui porro ipsum soluta mollitia perspiciatis beatae commodi.
             ul.user-skills
@@ -103,6 +103,67 @@ html(lang="en")
                               ).skill__circle.skill__circle--above
                               //- linear-gradient()
                             h4.skill__title #{skill} 
+        .triangles
+          svg.triangles__item.triangles__item--left(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(
+              points="0,0 1000,0 1000,100"
+            )
+          svg.triangles__item.triangles__item--right(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(
+              points="0,100 0,0 1000,0"
+            )    
+        .bottom-section
+          section.reviews
+            .reviews__title
+              h2.section-title Что обо мне говорят
+              .reviews__slider-controls
+            ul.reviews__slider
+              - for (var i=0;i < 2; i++)
+                li.review__slider-item
+                  .quote
+                    article.quote__text
+                    .quote__author
+                      .user.user--horizontal
+                        .user__avatar
+                          +image('content/DK.png', 'user__avatar-pic')
+                        .user__data
+                          .user__name Ковальчук Дмитрий
+                          .user__occ Основатель Loftschool
+
+              li.reviews__slider-item
+
+
+          section.form
+
+        footer.footer
+          .container.footer__container
+            .footer__copyright
+              .copyright
+                .copyright__year 2019
+                .copyright__username Владимир Голубь
+                .copyright__desc Личный сайт
+            .footer__data
+              .footer__menu
+                nav.nav.nav--color-white
+                  ul.nav__list
+                    each item in menu
+                      li.nav__item
+                        a(href="").nav__link #{item}
+              .footer__data-columns
+                .footer__data-col
+                  .footer__text
+                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero repellendus ex id corrupti et recusandae enim? Dignissimos ex voluptates quasi magni explicabo. Esse deserunt laboriosam harum incidunt, nemo consectetur corrupti.
+                  .footer__socials
+                    ul.socials.socials--rounded
+                      each item in socials
+                        li.socials__item
+                          a(href='').socials__link
+                            +icon(`${item}`,'socials__icon')
+                .footer__data-col
+                  article.footer__text
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis atque nesciunt debitis, consequuntur voluptates dignissimos quibusdam facilis obcaecati ipsa iusto, sapiente magnam quos aliquid suscipit explicabo maiores quae eligendi fugit.
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium odio veritatis natus asperiores possimus! Dolores cumque provident commodi saepe ut hic illum, dolore deleniti ullam tenetur magnam cupiditate fugit placeat?
+
 
 
 
