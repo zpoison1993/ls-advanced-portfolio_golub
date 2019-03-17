@@ -1,17 +1,94 @@
+.skill {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 .skill__shape {
-    width: 200px;
-    height: 200px;
+    width: 11.5rem;
+    height: 11.5rem;
     fill: transparent;
     stroke: #ccc;
-    stroke-width: 15px;
-    transform: rotateX(90)
+    stroke-width: 12px;
+    transform: rotateX(90);
+    
+    
 }
 .skill__circle--above {
     width: 200px;
     height: 200px;
     fill: transparent;
-    stroke: $skills-color;
+    // stroke: $skills-color;
     stroke-width: 20px;
-    stroke-dasharray: 502;
-    stroke-dashoffset: 250;
+    stroke-dasharray: 500;
+    // stroke-dashoffset: 280;
 }
+
+//280 380 15 50
+
+.user-skills__item:first-child {
+    & .skills-row__item {
+    &:nth-child(1) {
+        & .skill__circle--above {
+            stroke-dashoffset: 391;
+        }
+    }
+    &:nth-child(2) {
+        & .skill__circle--above {
+            stroke-dashoffset: 441;
+        }
+    }
+    &:nth-child(3) {
+        & .skill__circle--above {
+            stroke-dashoffset: 170;
+        }
+    }
+    &:nth-child(4) {
+        & .skill__circle--above {
+            stroke-dashoffset: 391;
+        }
+    }
+}
+}
+
+.user-skills__item:nth-child(2) {
+    & .skills-row__item {
+    &:nth-child(1) {
+        & .skill__circle--above {
+            stroke-dashoffset: 441;
+        }
+    }
+    &:nth-child(2) {
+        & .skill__circle--above {
+            stroke-dashoffset: 391;
+        }
+    }
+    &:nth-child(3) {
+        & .skill__circle--above {
+            stroke-dashoffset: 280;
+        }
+    }
+    &:nth-child(4) {
+        & .skill__circle--above {
+            stroke-dashoffset: 326;
+        }
+    }
+}
+}
+.skill__title {
+    position: absolute;
+    width: 70%;
+    left:15%;
+    text-align: center;    
+    font-size: 18px;
+    font-weight: bold;
+    color:$text-color-pale;
+}
+
+// &:nth-child(4) {
+//     width: 60%;
+// }
+

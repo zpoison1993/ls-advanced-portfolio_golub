@@ -1,10 +1,10 @@
 .socials {
     display: flex;
     align-items: center;
-
+   
     &--rounded {
         .socials__link {
-            border: 1px solid #ccc;
+            border: 1px solid $text-footer-color;
             border-radius: 50%;
             width:50px;
             height: 50px;
@@ -15,9 +15,9 @@
                 top:50%;
                 left:50%;
                 transform: translate(-50%,-50%);
-                width: 30px;
-                height: 30px;
-                fill:#ccc;
+                width: 25px;
+                height: 25px;
+                fill:$text-footer-color;
 
                 
             }
@@ -29,6 +29,11 @@
             }
         }
     }
+}
+
+.socials__icon {
+    fill: $text-color;
+
 }
 
 .socials__item {
@@ -43,4 +48,9 @@
     width:25px;
     height: 31px;
     display: block;
+    &:hover {
+        .socials__icon {
+            fill:grey;
+        }
+    }
 }

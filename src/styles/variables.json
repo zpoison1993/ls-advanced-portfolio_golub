@@ -1,7 +1,12 @@
 {
   "text-color": "#414c63",
-  "links-color": "#4b6fd7",
+  "text-color-pale": "#939ca5",
+  "links-color": "#4b6fd7",  
+  "text-footer-color": "#63656c",
+  "year-color": "#363942",
   "skills-color": "#6500f1",
+  "works-color": "#f29400",
+  "worksArrows-color": "#2d3c4e",
   "footer-color": "#1f232d",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",
