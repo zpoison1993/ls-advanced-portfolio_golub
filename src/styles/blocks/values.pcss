@@ -1,6 +1,32 @@
+.values {
+    position: relative;
+    &::before {
+        content: "";
+        height:100%;
+        width:50%;
+        background: url('../images/content/Rucksack.png') no-repeat;
+        background-position-x: 0;
+        // background-position-y: 50%;
+        position: absolute;
+        top:30%;
+        left:0;
+    }
+}
+
 .values__container {
     flex-direction: column;
-    padding-left: 340px;
+    // padding-left: 340px;
+}
+
+.values__title {
+    text-align: left;
+    padding:11.25rem 10rem 0 24rem;
+}
+
+.values__desc {
+    padding-right: 5rem;
+    font-weight: 600;
+    color: $text-color-pale;
 }
 
 .values__title-text {

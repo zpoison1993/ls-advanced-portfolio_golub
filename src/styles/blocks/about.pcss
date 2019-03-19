@@ -1,0 +1,41 @@
+.about__container {
+    padding: 32rem 0 10rem 0 ;
+    // justify-content: space-between;
+}
+
+.about__left {
+    flex:0.4;
+    margin-left: 5rem;
+}
+
+
+
+.about__right {
+    flex:0.6;
+    color: $text-color-pale;
+    font-weight: 600;
+    padding-left: 7rem;
+    padding-right: 8rem;
+}
+
+.about__username {
+    color: $text-color;
+    font-weight: 800;
+    padding: 2.5rem 0;
+}
+
+.about__ps {
+    padding-top: 6.25rem;
+    font-style: italic;
+    font-weight: normal;
+    position: relative;
+    &:before {
+        content: "";
+        background: url('../images/icons/_.png') no-repeat;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top:6.25rem;
+        left:-40px;
+    }
+}

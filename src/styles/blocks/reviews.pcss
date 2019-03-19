@@ -1,3 +1,122 @@
+.reviews__container {
+    flex-direction: column;
+    padding: 8.75rem 0;
+}
+
 .reviews__title {
-    margin-bottom: 30px;
+    margin-bottom: 7rem;
+    display: flex;
+    padding-left: 3rem;
+}
+.reviews__slider-controls{
+    margin-left: 6.25rem;
+}
+.reviews__arrows {
+    display: flex;
+    align-items: center;
+}
+
+.reviews__btn {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border:1px solid grey;
+    border-radius: 50%;
+    &:first-child{
+        margin-right: 2rem;
+    }
+    &:hover {
+        border-color: $works-color;
+        transition: 0.3s;
+        & .arrow {
+            fill:grey;
+            transition: 0.3s;
+        }
+    }
+    &:active {
+        border-color: $works-color;
+        transition: 0.3s;
+        & .arrow {
+            fill:grey;
+            transition: 0.3s;
+        }
+    }
+    &:focus {
+        border-color: $works-color;
+        transition: 0.3s;
+        & .arrow {
+            fill:grey;
+            transition: 0.3s;
+        }
+    }
+
+}
+
+.reviews__slider-wrapper {
+    padding:0 2rem;
+}
+
+.reviews__slider {
+    display: flex;
+    align-items: stretch;
+}
+
+.reviews__slider-item {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 12%;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top:0;
+        left:1.5rem;
+        // display: block;
+        width: 80px;
+        height: 60px;
+        background: svg-load('quote.svg', fill=#e7eeef, width=100%, height=100%) center center no-repeat;
+    }
+}
+.reviews__quote {
+    font-weight: 600;
+    font-size: 16px;
+    color:$text-color-pale;
+}
+.reviews__author-wrapper{
+    margin-top: 20px;
+}
+
+.reviews__author {
+    display: flex;
+    align-items: center;
+}
+
+.reviews__author-photoframe {
+    width: 80px;
+    height: 80px;
+    margin-right: 1.25rem;
+    overflow: hidden;
+    
+}
+
+.reviews__author-img {
+    border-radius: 50%;
+    // margin: -2.375rem 0;
+}
+
+.reviews__bio {
+    display: flex;
+    flex-direction: column;
+}
+.reviews__name {
+    font-weight: 600;
+}
+
+.reviews__position {
+    font-weight: 600;
+    color:$text-color-pale;
+    padding-top: 0.5rem;;
 }

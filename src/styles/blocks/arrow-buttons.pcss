@@ -1,0 +1,33 @@
+.arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    height: 20%;
+  
+    &--up {
+      transform: translate(-50%, -50%) rotate(-90deg);
+      fill: white;
+      &:hover {
+          fill:#ccc;
+      }
+    }
+  
+    &--down {
+      transform: translate(-50%, -50%) rotate(90deg);
+      fill: white;
+      &:hover {
+        fill:#ccc;
+    }
+    }
+  
+    &--left {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  
+    &--right {
+      transform: translate(-50%, -50%);
+    }
+  
+    
+  }
