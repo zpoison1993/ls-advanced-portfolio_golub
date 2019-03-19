@@ -25,7 +25,7 @@ html(lang="en")
                     - var socials = ['insta','vk','github'];
                     each item in socials
                       li.socials__item
-                        a(href='').socials__link
+                        a(href='' target="_blank").socials__link
                           +icon(`${item}`,'socials__icon')
           section.hero
             .container.hero__container
@@ -37,7 +37,7 @@ html(lang="en")
                   h1.user-info__name ВЛАДИМИР<br> ГОЛУБЬ
               .hero__bottom-buttons
                 .scroll-down 
-                  .scroll-down-text Скролл
+                  span.scroll-down-text Скролл
                   button(type="button").scroll-down-btn
                     +icon('scroll','scroll-down-button-svg')
           section.about
@@ -45,7 +45,7 @@ html(lang="en")
               .about__left
                 .user
                   .user__avatar
-                    +image('content/user1.jpg', 'user__avatar-pic')
+                    +image('content/user1.jpg', 'user__avatar-pic', "Владимир Голубь")
                   .user__data
                     table.user__data-table
                       -
@@ -62,7 +62,7 @@ html(lang="en")
                 .about__welcome 
                   p Привет, меня зовут
                 h2.section-title.about__username Владимир Голубь
-                span.about__desc
+                .about__desc
                   p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты
                 .about__ps
                   p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. а пока посмотрети, как тут всё классно и красиво!
@@ -130,13 +130,13 @@ html(lang="en")
                     li.works__slider-item
                       .works__preview-wrapper
                         .works__preview
-                          +image(previewsFiles[4],"works__preview-img")
+                          +image(previewsFiles[4],"works__preview-img", "Пример работы")
                           .works__preview-minilist-wrapper
                             ul.works__preview-minilist
                               each item,index in workItems                          
                                 li.works__preview-item
                                   button(type="button").works__preview-item-btn
-                                    +image(previewsFiles[index], "works__preview-item-img")
+                                    +image(previewsFiles[index], "works__preview-item-img", "Пример работы")
                       .works__slider-control
                         .works__slider-arrows
                           button(type="button").works__slider-btn.works__slider-btn--up
@@ -147,13 +147,13 @@ html(lang="en")
                 .works__tech
                   ul.tech-list
                     each item in techList
-                      li.tech-item 
+                      li.tech-list__item.tech-item 
                         span.tech-stack #{item}
                 .works__desc
                   h3.works__desc-title.desc-title Сайт школы<br> образования
                   .works__desc-text
                     p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a(href="#").works__link Посмотреть сайт      
+                a(href="#" target="_blank").works__link Посмотреть сайт      
         
         .bottom-section
           .triangles.triangles--bottom
@@ -185,11 +185,11 @@ html(lang="en")
                       .reviews__author-wrapper
                         .reviews__author
                           .reviews__author-photoframe
-                            +image(`${item.photo}`, 'reviews__author-img')
+                            +image(`${item.photo}`, 'reviews__author-img', item.name)
                             //- .reviews__author-img(style="background-image: url(`${item.photo}`)")
                           .reviews__bio
-                            .reviews__name #{item.name}
-                            .reviews__position #{item.position}
+                            span.reviews__name #{item.name}
+                            span.reviews__position #{item.position}
           section.contact
             .container.contact__container
               .contact__title
@@ -210,7 +210,7 @@ html(lang="en")
                       span.contact__form-label Сообщение к письму
                       textarea.contact__form-textarea(name="comment" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
                 .contact__form-row.contact__form-row--submit
-                  button(type="button").contact__form-submit ОТПРАВИТЬ
+                  button(type="submit").contact__form-submit ОТПРАВИТЬ
 
         footer.footer
           .container.footer__container
@@ -234,13 +234,13 @@ html(lang="en")
                     ul.socials.socials--rounded
                       each item in socials
                         li.socials__item
-                          a(href='').socials__link
+                          a(href='' target="_blank").socials__link
                             +icon(`${item}`,'socials__icon')
                 .footer__quote
                   article.quote
-                    .footer__text.quote__text
+                    .blockqoute
                       p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете
-                    .quote__author Martin Golding
+                    cite.quote__author Martin Golding
 
 
 

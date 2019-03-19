@@ -25,6 +25,31 @@
     &:first-child{
         margin-right: 2rem;
     }
+    &:hover {
+        border-color: $works-color;
+        transition: 0.3s;
+        & .arrow {
+            fill:grey;
+            transition: 0.3s;
+        }
+    }
+    &:active {
+        border-color: $works-color;
+        transition: 0.3s;
+        & .arrow {
+            fill:grey;
+            transition: 0.3s;
+        }
+    }
+    &:focus {
+        border-color: $works-color;
+        transition: 0.3s;
+        & .arrow {
+            fill:grey;
+            transition: 0.3s;
+        }
+    }
+
 }
 
 .reviews__slider-wrapper {
@@ -82,6 +107,10 @@
     // margin: -2.375rem 0;
 }
 
+.reviews__bio {
+    display: flex;
+    flex-direction: column;
+}
 .reviews__name {
     font-weight: 600;
 }

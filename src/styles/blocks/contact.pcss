@@ -28,8 +28,12 @@
             width:30px;
             height: 30px;
             background: svg-load('user.svg', fill=$text-color-pale, width=100%, height=100%) center center no-repeat;
+            &:focus {
+                background: svg-load('user.svg', fill=#9100ef, width=100%, height=100%) center center no-repeat;
+            }
         }
     }
+    
     &--email {
         &::before {
             content: "";
@@ -45,7 +49,7 @@
         &::before {
             content: "";
             position: absolute;
-            top:41%;
+            top:50%;
             left:0;
             width:30px;
             height: 30px;
@@ -72,7 +76,14 @@
     font-weight: bold;
     padding-left: 2rem;
     &::placeholder {
+        color:$text-color-pale;
+
+    }
+    &:focus {
+        border-color: #9100ef;
+        &::placeholder {
         color:$text-color;
+        }
     }
     
 }
@@ -90,6 +101,7 @@
     resize: none;
     width:90%;
     padding-left: 3rem;
+    padding-top: 1rem;
 }
 
 
@@ -98,5 +110,12 @@
     background: linear-gradient(90deg,#9100ef,$skills-color 50%);
     color:white;
     font-weight: bold;
-    border-radius: 35px 0 35px 0; 
+    border-radius: 35px 0 35px 0;
+    opacity: 1; 
+    &:hover, &:active, &:focus{
+        // background-image: linear-gradient(90deg,#9100ef,$skills-color 90%);
+        // transition: background-image 0.3s;
+        opacity: 0.8;
+        transition: 1s;
+    }
 }
