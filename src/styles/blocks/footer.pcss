@@ -74,18 +74,32 @@
     @include desktop() {
         line-height: 1.2rem;
     }
+    @include tablets() {
+        flex-direction: column;
+    }
 }
 
 .footer__data-col {
     display: flex;
     flex-direction: column;
+    
 }
 .footer__socials{
     margin-top: 1rem;
 }
+
+.footer__quote {
+    @include tablets() {
+        margin-top: 4rem;
+    }
+    
+}
 .footer__text, .blockqoute {
     color:$text-footer-color;
     padding-right: 5.5rem;
+    @include tablets() {
+        line-height: 1.6rem;
+    }
 }
 
 .quote__author {

@@ -1,5 +1,9 @@
 .about__container {
     padding: 32rem 0 10rem 0 ;
+    @include tablets() {
+        padding: 18rem 0 14rem 0;
+        font-size: 14px;
+    }
     // justify-content: space-between;
 }
 
@@ -8,6 +12,10 @@
     margin-left: 10rem;
     @include desktop() {
         margin-left: 5rem;
+    }
+    @include tablets() {
+        margin-left: 0;
+        font-size:14px; 
     }
     
 }
@@ -23,6 +31,9 @@
     @include desktop() {
         padding-right: 8rem;
     }
+    @include tablets() {
+        padding: 0 0 0 6rem;
+    }
     
 }
 
@@ -30,6 +41,15 @@
     color: $text-color;
     font-weight: 800;
     padding: 2.5rem 0;
+    @include tablets() {
+        padding: 1rem 0 2rem 0;
+    }
+}
+
+.about__desc, .about__ps {
+    @include tablets() {
+        line-height: 1.6rem;
+    }
 }
 
 .about__ps {
@@ -37,6 +57,9 @@
     font-style: italic;
     font-weight: normal;
     position: relative;
+    @include tablets() {
+        padding-top: 3.25rem;
+    }
     &:before {
         content: "";
         background: url('../images/icons/_.png') no-repeat;
@@ -44,6 +67,9 @@
         height: 25px;
         position: absolute;
         top:6.25rem;
+        @include tablets() {
+            top: 3.25rem;
+        }
         left:-40px;
     }
 }

@@ -2,9 +2,16 @@
 
     background-image: url(../images/content/Mountain_BaloonHD.jpg);
     background-size: cover; 
+    // background-size: 100% auto; 
     position: relative;
     @include desktop() {
         background-image: url(../images/content/Mountain_Baloon.jpg);
+    }
+    @include tablets() {
+        background-image: url(../images/content/Mountain_Baloon768.jpg);
+        background-position-x: 97%;
+        // background-size: 100% auto; 
+        
     }
     
 

@@ -3,12 +3,18 @@
     font-size: 18px;
     font-weight: 800;
     padding-left: 10%;
+    @include tablets() {
+        padding-left: 8%;
+    }
     position: relative;
     &::before {
         content: "";
         position: absolute;
         top:0;
         left:0;
+        @include tablets() {
+            left:1rem;
+        }
         // display: block;
         width: 20px;
         height: 20px;

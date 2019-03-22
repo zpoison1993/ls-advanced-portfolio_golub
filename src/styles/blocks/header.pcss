@@ -15,9 +15,16 @@
     display: flex;
     justify-content: center;
     margin: 0 20px;
+    @include desktopMini() {
+        display: none;
+    }
 }
 
 .header__links {
     display: flex;
     align-items: center;
+    @include desktopMini() {
+        flex: 0.36;
+        justify-content: space-between;
+    }
 }

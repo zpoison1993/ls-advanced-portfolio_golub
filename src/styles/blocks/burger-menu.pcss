@@ -1,0 +1,43 @@
+.header__burger-menu {
+    display: flex;
+    // flex:0.4;
+}
+
+.burger-menu__link {
+    display: none;
+    vertical-align: middle;
+    position: relative;
+    height: 1.375rem;
+    align-items: center;
+    @include desktopMini() {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.burger-menu__bars {
+    background: $text-color;
+    width:30px;
+    height:0.3125rem;
+    border-radius:2px;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top:0;
+        background: $text-color;
+        width:30px;
+        height:0.3125rem;
+        border-radius:2px;
+    }
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom:0;
+        background: $text-color;
+        width:30px;
+        height:0.3125rem;
+        border-radius:2px;
+    }
+}

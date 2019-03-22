@@ -1,5 +1,8 @@
 .works__container {
     flex-direction: column;
+    @include tablets() {
+        padding-top: 22rem;
+    }
 }
 
 .works__title {
@@ -11,11 +14,52 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 5rem;
+    @include tablets() {
+        flex-direction: column;
+
+    }
 }
 
 .works__left {
     // width:60%;
     z-index: 10;
+    position: relative;
+    padding-right: 1rem;
+        &::after {
+            content: "2";
+            position: absolute;
+            top:-8%;
+            right:-15%;
+            font-size: 400px;
+            font-weight: 800;
+            color:#f0f0f0;
+            z-index: -2;
+        }
+        @include desktop() {
+            &::after {
+                content: "2";
+                position: absolute;
+                top:-20%;
+                right:-20%;
+                font-size: 300px;
+                font-weight: 800;
+                color:#f0f0f0;
+            }
+        }
+        @include tablets() {
+            padding-right: 6rem;
+            padding-left: 1rem;
+            &::after {
+                content: "2";
+                position: absolute;
+                top:-20%;
+                right:-4%;
+                font-size: 300px;
+                font-weight: 800;
+                color:#f0f0f0;
+            }
+        }
+    
 }
 .works__slider-item {
     display: flex;
@@ -120,27 +164,23 @@
 .works__right {
     flex:1;
     padding-left: 10%;
-    position: relative;
-    &::before {
-        content: "2";
-        position: absolute;
-        top:-8%;
-        left:-15%;
-        font-size: 400px;
-        font-weight: 800;
-        color:#f0f0f0;
+
+    @include tablets {
+        padding: 0;
+        justify-content: center;
     }
-    @include desktop() {
-        &::before {
-            content: "2";
-            position: absolute;
-            top:-20%;
-            left:-9%;
-            font-size: 300px;
-            font-weight: 800;
-            color:#f0f0f0;
-        }
-    }
+    // position: relative;
+    // &::before {
+    //     content: "2";
+    //     position: absolute;
+    //     top:-8%;
+    //     left:-15%;
+    //     font-size: 400px;
+    //     font-weight: 800;
+    //     color:#f0f0f0;
+    //     z-index: -2;
+    // }
+    
    
 }
 
@@ -150,6 +190,10 @@
 
 .works__desc {
     margin-bottom: 50px;
+    @include tablets() {
+        text-align: center;
+        padding: 0 9rem;
+    }
 }
 .works__desc-title {
     font-weight: 700;
@@ -158,5 +202,17 @@
 
 .works__desc-text {
     padding-top: 11%;
+    font-weight: 600;
+    @include tablets() {
+        padding-top: 1rem;
+        line-height: 1.6rem;
+    }
+}
+
+.works__link-wrapper {
+    @include tablets() {
+        display: flex;
+        justify-content: center;
+    }
 }
 

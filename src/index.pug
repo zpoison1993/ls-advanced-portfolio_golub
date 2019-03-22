@@ -27,7 +27,10 @@ html(lang="en")
                       li.socials__item
                         a(href='' target="_blank").socials__link
                           +icon(`${item}`,'socials__icon')
-                
+                  .header__burger-menu
+                    <button type="button" class="burger-menu__link">
+                      <span class="burger-menu__bars"></span>
+                    </button>
           section.hero
             .container.hero__container
               
@@ -151,10 +154,11 @@ html(lang="en")
                       li.tech-list__item.tech-item 
                         span.tech-stack #{item}
                 .works__desc
-                  h3.works__desc-title.desc-title Сайт школы<br> образования
+                  h3.works__desc-title.desc-title Сайт школы образования
                   .works__desc-text
                     p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a(href="#" target="_blank").works__link Посмотреть сайт      
+                span.works__link-wrapper
+                  a(href="#" target="_blank").works__link Посмотреть сайт      
         
         .bottom-section
           .triangles.triangles--bottom
@@ -211,7 +215,7 @@ html(lang="en")
                       span.contact__form-label Сообщение к письму
                       textarea.contact__form-textarea(name="comment" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
                 .contact__form-row.contact__form-row--submit
-                  button(type="submit").contact__form-submit ОТПРАВИТЬ
+                  button(type="submit").contact__form--submit ОТПРАВИТЬ
 
         footer.footer
           .container.footer__container

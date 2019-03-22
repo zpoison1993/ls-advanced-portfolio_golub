@@ -6,12 +6,18 @@
 .nav__list {
     display: flex;
     align-items: center;
+    @include desktopMini() {
+        flex-wrap: wrap;
+    }
 }
 
 .nav__item {
     margin-right: 60px;
     &:last-child {
         margin-right: 0;
+    }
+    @include tablets() {
+        padding: 0.6rem 0;
     }
 
 }

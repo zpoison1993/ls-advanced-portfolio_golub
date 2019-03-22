@@ -3,9 +3,16 @@
     font-size: 24px;
     font-weight: bold;
     padding-left: 1.5rem;
+    @include tablets() {
+        padding-left: 0;
+        text-align: center;
+    }
 }
 .skills-row__list {
     display: flex;
+    @include desktopMini() {
+        flex-wrap: wrap;
+    }
 
 }
 

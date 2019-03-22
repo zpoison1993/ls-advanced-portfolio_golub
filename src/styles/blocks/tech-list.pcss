@@ -2,6 +2,9 @@
     display: flex;
     color: $text-color;
     font-weight: 600;
+    @include tablets() {
+        justify-content: center;
+    }
 }
 
 .tech-list__item {
