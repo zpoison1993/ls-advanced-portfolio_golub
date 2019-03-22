@@ -5,7 +5,11 @@
 
 .about__left {
     flex:0.4;
-    margin-left: 5rem;
+    margin-left: 10rem;
+    @include desktop() {
+        margin-left: 5rem;
+    }
+    
 }
 
 
@@ -15,7 +19,11 @@
     color: $text-color-pale;
     font-weight: 600;
     padding-left: 7rem;
-    padding-right: 8rem;
+    padding-right: 19rem;
+    @include desktop() {
+        padding-right: 8rem;
+    }
+    
 }
 
 .about__username {

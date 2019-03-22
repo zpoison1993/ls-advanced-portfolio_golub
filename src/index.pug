@@ -27,6 +27,7 @@ html(lang="en")
                       li.socials__item
                         a(href='' target="_blank").socials__link
                           +icon(`${item}`,'socials__icon')
+                
           section.hero
             .container.hero__container
               
@@ -217,8 +218,9 @@ html(lang="en")
             .footer__copyright
               .copyright
                 .copyright__year 2019
-                .copyright__username ВЛАДИМИР<br> ГОЛУБЬ
-                .copyright__desc Личный сайт<br> веб разработчика
+                .copyright__text
+                  .copyright__username ВЛАДИМИР<br> ГОЛУБЬ
+                  .copyright__desc Личный сайт<br> веб разработчика
             .footer__data
               .footer__menu
                 nav.nav.nav--color-white

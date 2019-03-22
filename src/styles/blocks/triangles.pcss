@@ -1,7 +1,12 @@
 .triangles {
     position: relative;
-    height: 80px;
-    margin-top: -80px;
+    height: 6rem;
+    margin-top: -6rem;
+    @include desktop() {
+        height: 5rem;
+    margin-top: -5rem;
+    }
+
     &--bottom {
         margin-top: 0;
     }

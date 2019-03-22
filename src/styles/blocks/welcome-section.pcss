@@ -1,6 +1,11 @@
 .welcome-section {
-    background-image: url(../images/content/Mountain_Baloon.jpg);
+
+    background-image: url(../images/content/Mountain_BaloonHD.jpg);
     background-size: cover; 
     position: relative;
+    @include desktop() {
+        background-image: url(../images/content/Mountain_Baloon.jpg);
+    }
+    
 
 }

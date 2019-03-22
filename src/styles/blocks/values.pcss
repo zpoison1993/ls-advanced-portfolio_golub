@@ -4,13 +4,27 @@
         content: "";
         height:100%;
         width:50%;
-        background: url('../images/content/Rucksack.png') no-repeat;
+        background: url('../images/content/Rucksack2.png') no-repeat;
         background-position-x: 0;
         // background-position-y: 50%;
         position: absolute;
         top:30%;
         left:0;
     }
+    @include desktop() {
+        &::before {
+            content: "";
+            height:100%;
+            width:50%;
+            background: url('../images/content/Rucksack.png') no-repeat;
+            background-position-x: 0;
+            // background-position-y: 50%;
+            position: absolute;
+            top:30%;
+            left:0;
+        }
+    }
+    
 }
 
 .values__container {
@@ -20,13 +34,19 @@
 
 .values__title {
     text-align: left;
-    padding:11.25rem 10rem 0 24rem;
+    padding:11.25rem 10rem 0 31rem;
+    @include desktop() {
+        padding:11.25rem 10rem 0 24rem;
+    }
 }
 
 .values__desc {
-    padding-right: 5rem;
+    padding-right: 13rem;
     font-weight: 600;
     color: $text-color-pale;
+    @include desktop() {
+    padding-right: 5rem;
+}
 }
 
 .values__title-text {

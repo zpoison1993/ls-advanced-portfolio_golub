@@ -1,6 +1,10 @@
 .reviews__container {
     flex-direction: column;
-    padding: 8.75rem 0;
+    padding: 8.75rem 25rem 8.75rem 0;  
+    @include desktop() {
+      padding: 8.75rem 0;  
+    }
+    
 }
 
 .reviews__title {
@@ -53,7 +57,11 @@
 }
 
 .reviews__slider-wrapper {
-    padding:0 2rem;
+    padding: 0;
+    @include desktop() {
+        padding:0 2rem;
+    }
+    
 }
 
 .reviews__slider {
@@ -67,7 +75,12 @@
     flex-direction: column;
     justify-content: space-between;
     padding-left: 10%;
-    padding-right: 12%;
+    padding-right: 5%;
+    line-height: 1.9rem;
+    @include desktop() {
+        padding-right: 12%;
+    }
+    
     position: relative;
     &::before {
         content: "";

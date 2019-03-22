@@ -20,6 +20,10 @@
 
 .copyright {
     padding-bottom: 1rem;
+    display: flex;
+    @include desktop {
+        flex-direction: column;
+    }
 }
 
 .copyright__year {
@@ -40,8 +44,19 @@
 .copyright__username {
     font-size: 18px;
     font-weight: bold;
-    padding-top: 0.8rem;
+    @include desktop() {
+       padding-top: 0.8rem; 
+    }
+    
 }
+
+.copyright__text {
+    padding-left: 50px;
+    @include desktop() {
+        padding-left: 0;
+    }
+}
+
 .copyright__desc{
     color: $year-color;
     padding-top: 30px;
@@ -55,6 +70,10 @@
 }
 .footer__data-columns {
     display: flex;
+    line-height: 1.875rem;
+    @include desktop() {
+        line-height: 1.2rem;
+    }
 }
 
 .footer__data-col {
