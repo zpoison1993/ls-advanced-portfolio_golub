@@ -11,9 +11,21 @@
     margin-bottom: 7rem;
     display: flex;
     padding-left: 3rem;
+    @include phones() {
+        flex-direction: column;
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
 }
 .reviews__slider-controls{
     margin-left: 6.25rem;
+    @include phones() {
+        margin-left: 0;
+        padding-top: 2rem;
+        display: flex;
+        justify-content: center;
+    } 
 }
 .reviews__arrows {
     display: flex;
@@ -61,6 +73,10 @@
     @include desktop() {
         padding:0 2rem;
     }
+    @include phones() {
+        overflow: hidden;
+        padding: 0;
+    }
     
 }
 
@@ -84,6 +100,11 @@
         padding-right: 0;
         padding-left: 6%;
     }
+    @include phones() {
+        padding-right: 0;
+        padding-left: 0;
+        flex: 1 0 100%;
+    }
     
     position: relative;
     &::before {
@@ -106,6 +127,9 @@
     font-weight: 600;
     font-size: 16px;
     color:$text-color-pale;
+    @include phones() {
+        padding: 0 0rem 0 0.5rem;
+    }
 }
 .reviews__author-wrapper{
     margin-top: 20px;

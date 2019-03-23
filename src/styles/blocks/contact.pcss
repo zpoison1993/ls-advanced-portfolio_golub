@@ -24,6 +24,9 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 2rem;
+    @include phones() {
+        flex-direction: column;
+    }
 }
 
 .contact__form-col {
@@ -80,6 +83,10 @@
     font-weight: 600;
     padding-left: 2rem;
     padding-bottom: 1rem;
+    @include phones() {
+        padding-left: 0;
+        text-align: center;
+    }
 }
 
 .contact__form-input,.contact__form-textarea {
@@ -101,6 +108,10 @@
         color:$text-color;
         }
     }
+    @include phones() {
+        text-align: center;
+        padding-left: 0;
+    }
 
 }
 
@@ -109,6 +120,9 @@
     padding: 0.5rem 0 0.5rem 3rem;
     @include tablets() {
         width: 100%;
+    }
+    @include phones() {
+        padding-left: 0;
     }
 
 }
@@ -124,6 +138,9 @@
     }
     padding-left: 3rem;
     padding-top: 1rem;
+    @include phones() {
+        padding-left: 0;
+    }
 }
 
 

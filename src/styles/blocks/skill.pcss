@@ -10,6 +10,10 @@
 .skill__shape {
     width: 11.5rem;
     height: 11.5rem;
+    @include phones() {
+        width: 9.5rem;
+        height: 9.5rem;
+    }
     fill: transparent;
     stroke: #ccc;
     stroke-width: 12px;

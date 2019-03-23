@@ -8,6 +8,9 @@
 .works__title {
     margin-bottom: 3.75rem;
     margin-top: 6.25rem;
+    @include phones() {
+        text-align: center;
+    }
 }
 
 .works__content {
@@ -59,7 +62,20 @@
                 color:#f0f0f0;
             }
         }
+        @include phones() {
+            padding: 0;
+            position: initial;
+            &::after {
+                display: none;
+            }
+        }
     
+}
+
+.works__slider {
+    @include phones() {
+        position: relative;
+    }
 }
 .works__slider-item {
     display: flex;
@@ -74,6 +90,9 @@
 
 .works__preview {
     position: relative;
+    @include phones() {
+        position: static;
+    }
 }
 
 .works__preview-img {
@@ -88,6 +107,9 @@
     overflow: hidden;
     height:75%;
     width: 25%;
+    @include phones() {
+        display: none;
+    }
 }
 
 .works__preview-minilist {
@@ -135,11 +157,24 @@
 
 .works__slider-control {
     padding-left: 85%;
+    @include phones() {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 0;
+        // padding-left: 65%;
+        position: absolute;
+        bottom: 0;
+        z-index: 100;
+    }
 }
 .works__slider-arrows {
     background: $worksArrows-color;
   display: flex;
   justify-content: center;
+  @include phones() {
+      width: 6rem;
+  }
 }
 
 .works__slider-btn {
@@ -186,6 +221,10 @@
 
 .works__tech {
     margin-bottom: 50px;
+    @include phones() {
+        margin-top: 5rem;
+        margin-bottom: 2.125rem;
+    }
 }
 
 .works__desc {
@@ -193,6 +232,10 @@
     @include tablets() {
         text-align: center;
         padding: 0 9rem;
+    }
+    @include phones() {
+        text-align: left;
+        padding: 0 1rem 0 0 ;
     }
 }
 .works__desc-title {
@@ -213,6 +256,9 @@
     @include tablets() {
         display: flex;
         justify-content: center;
+    }
+    @include phones() {
+        justify-content: flex-start;
     }
 }
 

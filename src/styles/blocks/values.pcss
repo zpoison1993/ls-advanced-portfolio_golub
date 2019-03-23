@@ -32,14 +32,16 @@
         &::after {
             content: "";
             height:100%;
-            width:100%;
+            width:90%;
             background: url('../images/content/Rucksack768.png') no-repeat;
             background-position-x: 0;
             // background-position-y: 50%;
             position: absolute;
             // bottom:0%;
-            left:30%;
-            transform: translateY(5%);
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
         }
     }
     
@@ -60,12 +62,20 @@
         padding:7.25rem 10rem 0 10rem;
         text-align: center;
     }
+    @include phones() {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: left;
+    }
 }
 .values__title-text {
     margin-bottom: 60px;
     @include tablets() {
         padding: 0 1rem;
         margin-bottom: 1.75rem;
+    }
+    @include phones() {
+        padding: 0;
     }
 }
 
@@ -79,6 +89,10 @@
     @include desktopMini() {
         padding-right: 0rem;
         line-height: 1.6rem;
+    }
+    @include phones() {
+        font-size: 14px;
+        padding-right: 3rem;
     }
 }
 

@@ -20,13 +20,15 @@
     text-align: center;
     color: #939ca5;
     @include desktop() {
-    text-align: right;
-    padding-right: 2rem; 
+        text-align: right;
+        padding-right: 2rem; 
+        font-size: 16px;
     }
     @include tablets() {
         text-align: center;
-        padding-right: 0; 
-        }
+        padding-right: 0;
+        font-size: 14px; 
+    }
     
 
 }
@@ -37,6 +39,11 @@
     @include tablets() {
         padding-top: 30px;
         font-size: 48px;
+        padding-left: 0;
+    }
+    @include phones() {
+        font-size: 36px;
+      
     }
 
 }

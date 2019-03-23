@@ -4,6 +4,9 @@
         padding: 18rem 0 14rem 0;
         font-size: 14px;
     }
+    @include phones() {
+        flex-direction: column;
+    }
     // justify-content: space-between;
 }
 
@@ -33,6 +36,9 @@
     }
     @include tablets() {
         padding: 0 0 0 6rem;
+    }
+    @include phones() {
+        padding: 2rem 0 0 0;
     }
     
 }
@@ -69,6 +75,9 @@
         top:6.25rem;
         @include tablets() {
             top: 3.25rem;
+        }
+        @include phones() {
+            left: -1.8rem;
         }
         left:-40px;
     }

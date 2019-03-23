@@ -7,6 +7,9 @@
 .footer__container {
     display: flex;;
     justify-content: space-between;
+    @include phones() {
+        flex-direction: column;
+    }
 }
 
 // .footer__data{
@@ -23,6 +26,9 @@
     display: flex;
     @include desktop {
         flex-direction: column;
+    }
+    @include phones() {
+        
     }
 }
 
@@ -60,6 +66,9 @@
 .copyright__desc{
     color: $year-color;
     padding-top: 30px;
+    @include phones() {
+        padding-top: 1rem;
+    }
 }
 
 .footer__data{
