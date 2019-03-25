@@ -85,34 +85,9 @@ html(lang="en")
               h2.section-title.values__title-text.section-title--small Чем я могу быть полезен вам 
               .values__desc
                 p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-            ul.user-skills
-              -
-                var skills = [
-                  ['Front-end',['HTML5','CSS3','Javascript','Jquery и Vue.js']],
-                  ['Workflow',['GIT','Terminal','Gulp','Webpack']],
-                ];
-              each item in skills
-                li.user-skills__item.skills-row                
-                    h3.skills-row__title #{item[0]}
-                    ul.skills-row__list
-                      each skill in item[1]                
-                        li.skills-row__item
-                          .skill
-                            svg(viewBox="0 0 200 200" preserveAspectRatio='none').skill__shape
-                              <defs>
-                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                  <stop offset="0%" stop-color="#5500f2" />
-                                  <stop offset="100%" stop-color="#8f00ef" />
-                                  </linearGradient>
-                              </defs>
-                              circle(
-                                r="70" cx="100" cy="100"
-                              ).skill__circle.skill__circle--under
-                              circle(
-                                r="70" cx="100" cy="100" transform="rotate(180, 100 100)" stroke = "url(#gradient)"
-                              ).skill__circle.skill__circle--above
-                              //- linear-gradient()
-                            h4.skill__title #{skill}
+            .values__widget
+              #skills-component
+              
         section.works
           - var workItems = [1, 2, 3, 4, 5];
           - 
@@ -128,38 +103,7 @@ html(lang="en")
             .works__title
               h2.section-title Мои работы
             .works__content
-              .works__left
-                .works__slider
-                  ul.works__slider-list
-                    li.works__slider-item
-                      .works__preview-wrapper
-                        .works__preview
-                          +image(previewsFiles[4],"works__preview-img", "Пример работы")
-                          .works__preview-minilist-wrapper
-                            ul.works__preview-minilist
-                              each item,index in workItems                          
-                                li.works__preview-item
-                                  button(type="button").works__preview-item-btn
-                                    +image(previewsFiles[index], "works__preview-item-img", "Пример работы")
-                      .works__slider-control
-                        .works__slider-arrows
-                          button(type="button").works__slider-btn.works__slider-btn--up
-                            +icon('arrow-down', 'arrow arrow--up')
-                          button(type="button").works__slider-btn.works__slider-btn--down
-                            +icon('arrow-down', 'arrow arrow--down')    
-              .works__right
-                .works__tech
-                  ul.tech-list
-                    each item in techList
-                      li.tech-list__item.tech-item 
-                        span.tech-stack #{item}
-                .works__desc
-                  h3.works__desc-title.desc-title Сайт школы образования
-                  .works__desc-text
-                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                span.works__link-wrapper
-                  a(href="#" target="_blank").works__link Посмотреть сайт      
-        
+              #slider-component        
         .bottom-section
           .triangles.triangles--bottom
             svg.triangles__item.triangles__item--left(viewBox="0 0 1000 100" preserveAspectRatio="none")
@@ -247,6 +191,8 @@ html(lang="en")
                     .blockqoute
                       p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете
                     cite.quote__author Martin Golding
+
+    include ./templates/entry.pug
 
 
 
