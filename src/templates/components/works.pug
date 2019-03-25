@@ -3,7 +3,9 @@ script(type="text/x-template")#slider-container
         display(
             :works="works"
             :currentWork = "currentWork"
+            :currentIndex = "currentIndex"
             @slide="handleSlide"
+            
         )
         info(
             :currentWork = "currentWork"
@@ -11,7 +13,7 @@ script(type="text/x-template")#slider-container
         
 
 script(type="text/x-template")#slider-display
-    .works__left
+    .works__left(:data-slide="currentIndex + 1")
         .works__slider
             ul.works__slider-list
                 li.works__slider-item
@@ -22,6 +24,7 @@ script(type="text/x-template")#slider-display
                             thumbs(
                                 :works="reversedWorks"
                                 :currentWork = "currentWork"
+                               
                             )
                         btns(
                             @slide ="direction => $emit('slide',direction)"
@@ -31,12 +34,12 @@ script(type="text/x-template")#slider-display
 
 script(type="text/x-template")#slider-thumbs
     .works__preview-minilist-wrapper
-        ul.works__preview-minilist                      
+        ul.works__preview-minilist(ref="carousel")                      
             li.works__preview-item(
                 v-for="work in works" :key="work.id"
                 :class="{active: currentWork.id === work.id}"
                 )
-                button(type="button").works__preview-item-btn
+                button(type="button" ).works__preview-item-btn
                     //- +image(work.photo, "works__preview-item-img", "Пример работы")
                     img(:src="work.photo", alt="Пример работы").works__preview-item-img
 
@@ -62,6 +65,6 @@ script(type="text/x-template")#slider-info
 
 script(type="text/x-template")#slider-tags
     .works__tech
-        ul.tech-list(v-for="tag in tagsArray")
-            li.tech-list__item.tech-item 
+        ul.tech-list
+            li.tech-list__item.tech-item(v-for="tag in tagsArray") 
                 span.tech-stack {{tag}}                 

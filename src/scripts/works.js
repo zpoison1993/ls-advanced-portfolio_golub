@@ -4,8 +4,17 @@ const thumbs = {
     template:"#slider-thumbs",
     props: {
         works: Array,
-        currentWork: Object
-    }
+        currentWork: Object,
+        currentIndex: Number
+    },
+    // methods: {
+    //     getTransform() {
+    //         const dY = this.$refs['carousel'];
+    //         const dYTransform = 
+    //             getComputedStyle(dY).getPropertyValue('transform:translateY');
+    //         console.log(dYTransform)
+    //     }
+    // }
 }
 const btns = {
     template:"#slider-btns"
@@ -25,7 +34,8 @@ const display = {
     },
     props: {
         works: Array,
-        currentWork: Object
+        currentWork: Object,
+        currentIndex: Number
     },
     computed: {
         reversedWorks() {
@@ -84,26 +94,42 @@ new Vue({
                 return item;
             });
         },
+        getTransform(data) {
+        const dY = this.$refs['carousel'];
+        const dYTransform = getComputedStyle(dY).getPropertyValue('translateY');
+        return console.log(dYTransform)
+        },
         handleSlide(direction) {
             switch (direction) {
                 case 'next' :
                 this.currentIndex++;
+                
+                // getTransform(data);
                 break;
                 case 'prev' :
                 this.currentIndex--;
+                // getTransform(data);
                 break;
             }
         },
+       
         makeInfiniteLoopForCurrentIndex(value) {
             const worksAmount = this.works.length-1; 
             if (value > worksAmount) this.currentIndex = 0;
             if(value < 0) this.currentIndex = worksAmount;
-        }
+        },
+
     },
     created() {
         const data = require('../data/works.json');
         this.works = this.makeArrWithRequiredImages(data);
 
         // this.currentWork = this.works[1];
+    },
+    mounted() {
+        // const carousel = document.querySelector('.works__preview-item');
+        // carousel.addEventListener(click, (e)=> {
+        //     console.log(getComputedStyle(carousel.getPropertyValue('width')))
+        // })
     }
 })
