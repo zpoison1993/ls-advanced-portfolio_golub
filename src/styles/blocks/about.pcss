@@ -1,11 +1,26 @@
+.about {
+    position: absolute;
+    top:100vh;
+    background: url(../images/content/7_White1.png);
+   width: 100%;
+    background-size: cover; 
+    // @include tablets() {
+    //     top:13%
+    // }
+    // @include tablets() {
+    //     top:15%
+    // }
+}
+
 .about__container {
-    padding: 32rem 0 10rem 0 ;
+    padding: 10rem 0 10rem 0 ;
     @include tablets() {
         padding: 18rem 0 14rem 0;
         font-size: 14px;
     }
     @include phones() {
         flex-direction: column;
+        padding: 6rem 0 14rem 0;
     }
     // justify-content: space-between;
 }

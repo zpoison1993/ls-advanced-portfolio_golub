@@ -11,6 +11,24 @@ html(lang="en")
     .wrapper
       .maincontent
         .welcome-section
+          section.parallax
+            .parallax__layer(data-speed="0.1")
+              +image("content/1_Sky.jpg", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.25")
+              +image("content/2_Mountain.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.35")
+              +image("content/3_Baloon.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.38")
+              +image("content/4_Cloud.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.45")
+              +image("content/5_Man.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.48")
+              +image("content/6_Mountain.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.5")
+              +image("content/7_White1.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.3")
+              +image("content/7_White1.png", "parallax__image", "Слой для параллакса")
+
           header.header
                 a.logo(href="") ВГ
                 .header__menu
@@ -31,7 +49,7 @@ html(lang="en")
                     <button type="button" class="burger-menu__link">
                       <span class="burger-menu__bars"></span>
                     </button>
-          section.hero
+          section.fullscreen-section.hero
             .container.hero__container
               
 
@@ -44,7 +62,7 @@ html(lang="en")
                   span.scroll-down-text Скролл
                   button(type="button").scroll-down-btn
                     +icon('scroll','scroll-down-button-svg')
-          section.about
+          section.fullscreen-section.about
             .container.about__container
               .about__left
                 .user
