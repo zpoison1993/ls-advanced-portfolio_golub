@@ -132,31 +132,7 @@ html(lang="en")
               polygon(
                 points="0,100 0,0 1000,0"
               )    
-          section.reviews
-            .container.reviews__container
-              .reviews__title
-                h2.section-title Что обо мне говорят
-                .reviews__slider-controls
-                  .reviews__arrows
-                    button(type="button").reviews__btn.reviews__btn--left
-                      +icon('arrow-down', 'arrow arrow--left')
-                    button(type="button").reviews__btn.reviews__btn--right
-                      +icon('arrow-down', 'arrow arrow--right')
-              .reviews__slider-wrapper
-                ul.reviews__slider
-                  -
-                    var reviewsObjArr = [{"name": "Ковальчук Дмитрий","position": "Основатель Loftschool","content": "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!","photo": "content/DK2.png"},{"name": "Владимир Сабанцев","position": "Преподаватель","content": "Этот код выдержит любые испытания. Только, пожалуйста, не загружайте сайт на слишком старых браузерах.","photo": "content/VS2.jpg"}];
-                  each item in reviewsObjArr
-                    li.reviews__slider-item
-                      q.reviews__quote #{item.content}
-                      .reviews__author-wrapper
-                        .reviews__author
-                          .reviews__author-photoframe
-                            +image(`${item.photo}`, 'reviews__author-img', item.name)
-                            //- .reviews__author-img(style="background-image: url(`${item.photo}`)")
-                          .reviews__bio
-                            span.reviews__name #{item.name}
-                            span.reviews__position #{item.position}
+          #reviews
           section.contact
             .container.contact__container
               .contact__title

@@ -80,12 +80,17 @@
     
 }
 
-.reviews__slider {
+.reviews__slider, .flickity-slider {
     display: flex;
     align-items: stretch;
 }
+.flickity-viewport {
+    width: 100%;
+}
 
-.reviews__slider-item {
+// .reviews__slider-item {
+    .reviews__slider-item {
+    width: 50%;
     flex: 1 0 50%;
     display: flex;
     flex-direction: column;
@@ -94,7 +99,7 @@
     padding-right: 5%;
     line-height: 1.9rem;
     @include desktop() {
-        padding-right: 12%;
+        padding-right: 0;
     }
     @include tablets() {
         padding-right: 0;
@@ -104,6 +109,7 @@
         padding-right: 0;
         padding-left: 0;
         flex: 1 0 100%;
+        width: 100%;
     }
     
     position: relative;
@@ -111,7 +117,7 @@
         content: "";
         position: absolute;
         top:0;
-        left:-1.5rem;
+        left:0rem;
         // display: block;
         width: 80px;
         height: 60px;
