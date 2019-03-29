@@ -1,8 +1,9 @@
 .about {
-    position: absolute;
-    top:100vh;
-    background: url(../images/content/7_White1.png);
-   width: 100%;
+    // position: absolute;
+    // top:100vh;
+    // background: url(../images/content/7_White1.png);   
+    height: 100%;
+    width: 100%;
     background-size: cover; 
     // @include tablets() {
     //     top:13%
@@ -15,12 +16,13 @@
 .about__container {
     padding: 10rem 0 10rem 0 ;
     @include tablets() {
-        padding: 18rem 0 14rem 0;
+        padding: 15rem 0 10rem 0;
         font-size: 14px;
     }
     @include phones() {
         flex-direction: column;
-        padding: 6rem 0 14rem 0;
+        padding: 9rem 0 7rem 0;
+        
     }
     // justify-content: space-between;
 }
@@ -73,6 +75,12 @@
     }
 }
 
+.about__desc {
+    @include phones() {
+        padding-right: 16%;
+    }
+}
+
 .about__ps {
     padding-top: 6.25rem;
     font-style: italic;
@@ -80,6 +88,9 @@
     position: relative;
     @include tablets() {
         padding-top: 3.25rem;
+    }
+    @include phones() {
+        padding-right: 17%;
     }
     &:before {
         content: "";

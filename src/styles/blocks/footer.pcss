@@ -19,6 +19,12 @@
 .footer__copyright {
     // width: 30%;
     margin-right: 6.25rem;
+    @include tablets() {
+        margin-right: 8.25rem;
+    }
+    @include phones() {
+        margin-right: 0;
+    }
 }
 
 .copyright {
@@ -73,6 +79,12 @@
 
 .footer__data{
     flex:1;
+    @include tablets() {
+        flex: initial;
+    }
+    @include phones() {
+        flex: 1;
+    }
 }
 .footer__menu {
     margin-bottom: 30px;
@@ -111,7 +123,18 @@
     }
 }
 
+.blockqoute {
+    @include tablets() {
+        padding-bottom: 3%;
+        padding-right: 1.5rem;
+    }
+    @include phones() {
+        padding-bottom: 8%;
+        padding-right: 1.6rem;
+    }
+}
+
 .quote__author {
     font-style: italic;
-    padding-top: 1rem;
+    
 }

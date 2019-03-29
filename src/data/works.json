@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "1 Сайт школы онлайн образования",
-        "skills": "1 HTML, CSS, Javascript",
+        "skills": "1HTML, CSS, Javascript",
         "photo": "work1.jpg",
         "link": "//google.com",
         "desc": "1 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
@@ -10,7 +10,7 @@
     {
         "id": 2,
         "title": "2 Сайт школы онлайн образования",
-        "skills": "2 HTML, CSS, Javascript",
+        "skills": "2HTML, CSS, Javascript",
         "photo": "work2.jpg",
         "link": "//google.com",
         "desc": "2 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
@@ -18,7 +18,7 @@
     {
         "id": 3,
         "title": "3 Сайт школы онлайн образования",
-        "skills": "3 HTML, CSS, Javascript",
+        "skills": "3HTML, CSS, Javascript",
         "photo": "work3.jpg",
         "link": "//google.com",
         "desc": "3 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
@@ -26,7 +26,7 @@
     {
         "id": 4,
         "title": "4 Сайт школы онлайн образования",
-        "skills": "4 HTML, CSS, Javascript",
+        "skills": "4HTML, CSS, Javascript",
         "photo": "work4.jpg",
         "link": "//google.com",
         "desc": "4 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
@@ -34,7 +34,7 @@
     {
         "id": 5,
         "title": "5 Сайт школы онлайн образования",
-        "skills": "5 HTML, CSS, Javascript",
+        "skills": "5HTML, CSS, Javascript",
         "photo": "work5.jpg",
         "link": "//google.com",
         "desc": "5 Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"

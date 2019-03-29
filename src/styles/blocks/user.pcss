@@ -1,7 +1,18 @@
 .user__avatar {
-   display: flex;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
     text-align: center;
+    @include tablets() {
+        justify-content: left;
+        padding-left: 5%;
+    }
+    @include phones() {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding-left: 0;  
+    }
+
     &-pic{
          width:200px;
         height: 200px;
@@ -17,6 +28,7 @@
     @include phones() {
         padding-right: 0;
         padding-top: 1.5rem;
+        justify-content: left;
     }
 }
 

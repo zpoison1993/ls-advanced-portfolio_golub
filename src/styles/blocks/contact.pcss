@@ -9,6 +9,7 @@
     }
     @include tablets() {
         padding-right: 0;
+        padding-top: 0;
     }
     
 }
@@ -100,6 +101,9 @@
     padding-left: 2rem;
     &::placeholder {
         color:$text-color-pale;
+        @include phones() {
+            color:$text-color;
+        }
 
     }
     &:focus {
@@ -138,8 +142,15 @@
     }
     padding-left: 3rem;
     padding-top: 1rem;
+    padding-right: 35%;
+    padding-bottom: 1rem;
+    line-height: 1.8rem;
     @include phones() {
-        padding-left: 0;
+        padding-right: 0;
+        padding-left: 15%;
+        min-height: 88px;
+        text-align: left;
+        line-height: 1.5rem;
     }
 }
 
