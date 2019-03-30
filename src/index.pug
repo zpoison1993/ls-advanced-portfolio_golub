@@ -50,6 +50,8 @@ html(lang="en")
                     <button type="button" class="burger-menu__link">
                       <span class="burger-menu__bars"></span>
                     </button>
+                
+
           section.fullscreen-section.hero
             .container.hero__container
               
@@ -63,6 +65,29 @@ html(lang="en")
                   span.scroll-down-text Скролл
                   button(type="button").scroll-down-btn
                     +icon('scroll','scroll-down-button-svg')
+          .mobile-menu
+            .mobile-menu__container
+              .mobile-menu__header
+                button(type="button").mobile-close
+                  +icon('remove','close-svg')
+              .mobile-menu__content
+                .mobile-menu__list
+                  nav.nav
+                    ul.nav__list.nav-mobile
+                      - var menu = ['Главная','Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
+                      each item in menu
+                        li.nav__item.mobile-menu__item
+                          a(href="").nav__link #{item}
+                .mobile-menu__socials
+                  ul.socials.socials--mobile
+                    - var socials = ['insta','vk','github'];
+                    each item in socials
+                      li.socials__item.mobile-menu__socials-item
+                        a(href='' target="_blank").socials__link
+                          +icon(`${item}`,'socials__icon')
+                
+
+
           section.fullscreen-section.about
             .container.about__container
               .about__left
