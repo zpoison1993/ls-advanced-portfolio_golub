@@ -1,0 +1,25 @@
+.section-heading {
+    display: flex;
+}
+
+
+
+.btn--add-skills-group {
+    font-weight: 600;
+    color: #383bcf;
+    position: relative;
+    &::before{
+        content: "+";
+      padding: 4px 7px;
+      color: #fff;
+      display: inline-block;
+      background-image: linear-gradient(to right, #006aed, #3f35cb);
+      border-radius: 50%;
+      margin-right: 10px;
+      flex-shrink: 0;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1;
+
+    }
+}
