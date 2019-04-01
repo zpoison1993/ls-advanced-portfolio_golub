@@ -11,6 +11,25 @@ html(lang="en")
     .wrapper
       .maincontent
         .welcome-section
+          section.parallax
+            .parallax__layer(data-speed="0.1")
+              +image("content/1_Sky.jpg", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.25")
+              +image("content/2_Mountain.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.35")
+              +image("content/3_Baloon.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.38")
+              +image("content/4_Cloud.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.45")
+              +image("content/5_Man.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.48")
+              +image("content/6_Mountain.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.5")
+              +image("content/7_White1.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.3")
+              +image("content/7_White1.png", "parallax__image", "Слой для параллакса")
+            .parallax__layer(data-speed="0.3")
+              +image("content/7_White1.png", "parallax__image", "Слой для параллакса")
           header.header
                 a.logo(href="") ВГ
                 .header__menu
@@ -27,7 +46,13 @@ html(lang="en")
                       li.socials__item
                         a(href='' target="_blank").socials__link
                           +icon(`${item}`,'socials__icon')
-          section.hero
+                  .header__burger-menu
+                    <button type="button" class="burger-menu__link">
+                      <span class="burger-menu__bars"></span>
+                    </button>
+                
+
+          section.fullscreen-section.hero
             .container.hero__container
               
 
@@ -40,7 +65,30 @@ html(lang="en")
                   span.scroll-down-text Скролл
                   button(type="button").scroll-down-btn
                     +icon('scroll','scroll-down-button-svg')
-          section.about
+          .mobile-menu
+            .mobile-menu__container
+              .mobile-menu__header
+                button(type="button").mobile-close
+                  +icon('remove','close-svg')
+              .mobile-menu__content
+                .mobile-menu__list
+                  nav.nav
+                    ul.nav__list.nav-mobile
+                      - var menu = ['Главная','Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
+                      each item in menu
+                        li.nav__item.mobile-menu__item
+                          a(href="").nav__link #{item}
+                .mobile-menu__socials
+                  ul.socials.socials--mobile
+                    - var socials = ['insta','vk','github'];
+                    each item in socials
+                      li.socials__item.mobile-menu__socials-item
+                        a(href='' target="_blank").socials__link
+                          +icon(`${item}`,'socials__icon')
+                
+
+
+          section.fullscreen-section.about
             .container.about__container
               .about__left
                 .user
@@ -81,34 +129,9 @@ html(lang="en")
               h2.section-title.values__title-text.section-title--small Чем я могу быть полезен вам 
               .values__desc
                 p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-            ul.user-skills
-              -
-                var skills = [
-                  ['Front-end',['HTML5','CSS3','Javascript','Jquery и Vue.js']],
-                  ['Workflow',['GIT','Terminal','Gulp','Webpack']],
-                ];
-              each item in skills
-                li.user-skills__item.skills-row                
-                    h3.skills-row__title #{item[0]}
-                    ul.skills-row__list
-                      each skill in item[1]                
-                        li.skills-row__item
-                          .skill
-                            svg(viewBox="0 0 200 200" preserveAspectRatio='none').skill__shape
-                              <defs>
-                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                  <stop offset="0%" stop-color="#5500f2" />
-                                  <stop offset="100%" stop-color="#8f00ef" />
-                                  </linearGradient>
-                              </defs>
-                              circle(
-                                r="70" cx="100" cy="100"
-                              ).skill__circle.skill__circle--under
-                              circle(
-                                r="70" cx="100" cy="100" transform="rotate(180, 100 100)" stroke = "url(#gradient)"
-                              ).skill__circle.skill__circle--above
-                              //- linear-gradient()
-                            h4.skill__title #{skill}
+            .values__widget
+              #skills-component
+              
         section.works
           - var workItems = [1, 2, 3, 4, 5];
           - 
@@ -124,37 +147,7 @@ html(lang="en")
             .works__title
               h2.section-title Мои работы
             .works__content
-              .works__left
-                .works_slider
-                  ul.works__slider-list
-                    li.works__slider-item
-                      .works__preview-wrapper
-                        .works__preview
-                          +image(previewsFiles[4],"works__preview-img", "Пример работы")
-                          .works__preview-minilist-wrapper
-                            ul.works__preview-minilist
-                              each item,index in workItems                          
-                                li.works__preview-item
-                                  button(type="button").works__preview-item-btn
-                                    +image(previewsFiles[index], "works__preview-item-img", "Пример работы")
-                      .works__slider-control
-                        .works__slider-arrows
-                          button(type="button").works__slider-btn.works__slider-btn--up
-                            +icon('arrow-down', 'arrow arrow--up')
-                          button(type="button").works__slider-btn.works__slider-btn--down
-                            +icon('arrow-down', 'arrow arrow--down')    
-              .works__right
-                .works__tech
-                  ul.tech-list
-                    each item in techList
-                      li.tech-list__item.tech-item 
-                        span.tech-stack #{item}
-                .works__desc
-                  h3.works__desc-title.desc-title Сайт школы<br> образования
-                  .works__desc-text
-                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a(href="#" target="_blank").works__link Посмотреть сайт      
-        
+              #slider-component        
         .bottom-section
           .triangles.triangles--bottom
             svg.triangles__item.triangles__item--left(viewBox="0 0 1000 100" preserveAspectRatio="none")
@@ -165,31 +158,7 @@ html(lang="en")
               polygon(
                 points="0,100 0,0 1000,0"
               )    
-          section.reviews
-            .container.reviews__container
-              .reviews__title
-                h2.section-title Что обо мне говорят
-                .reviews__slider-controls
-                  .reviews__arrows
-                    button(type="button").reviews__btn.reviews__btn--left
-                      +icon('arrow-down', 'arrow arrow--left')
-                    button(type="button").reviews__btn.reviews__btn--right
-                      +icon('arrow-down', 'arrow arrow--right')
-              .reviews__slider-wrapper
-                ul.reviews__slider
-                  -
-                    var reviewsObjArr = [{"name": "Ковальчук Дмитрий","position": "Основатель Loftschool","content": "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!","photo": "content/DK2.png"},{"name": "Владимир Сабанцев","position": "Преподаватель","content": "Этот код выдержит любые испытания. Только, пожалуйста, не загружайте сайт на слишком старых браузерах.","photo": "content/VS2.jpg"}];
-                  each item in reviewsObjArr
-                    li.reviews__slider-item
-                      q.reviews__quote #{item.content}
-                      .reviews__author-wrapper
-                        .reviews__author
-                          .reviews__author-photoframe
-                            +image(`${item.photo}`, 'reviews__author-img', item.name)
-                            //- .reviews__author-img(style="background-image: url(`${item.photo}`)")
-                          .reviews__bio
-                            span.reviews__name #{item.name}
-                            span.reviews__position #{item.position}
+          #reviews
           section.contact
             .container.contact__container
               .contact__title
@@ -210,15 +179,16 @@ html(lang="en")
                       span.contact__form-label Сообщение к письму
                       textarea.contact__form-textarea(name="comment" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
                 .contact__form-row.contact__form-row--submit
-                  button(type="submit").contact__form-submit ОТПРАВИТЬ
+                  button(type="submit").contact__form--submit ОТПРАВИТЬ
 
         footer.footer
           .container.footer__container
             .footer__copyright
               .copyright
                 .copyright__year 2019
-                .copyright__username ВЛАДИМИР<br> ГОЛУБЬ
-                .copyright__desc Личный сайт<br> веб разработчика
+                .copyright__text
+                  .copyright__username ВЛАДИМИР ГОЛУБЬ
+                  .copyright__desc Личный сайт веб разработчика
             .footer__data
               .footer__menu
                 nav.nav.nav--color-white
@@ -241,6 +211,8 @@ html(lang="en")
                     .blockqoute
                       p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете
                     cite.quote__author Martin Golding
+
+    include ./templates/entry.pug
 
 
 

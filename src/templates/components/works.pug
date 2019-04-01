@@ -1,0 +1,70 @@
+script(type="text/x-template")#slider-container
+    .works-slider
+        display(
+            :works="works"
+            :currentWork = "currentWork"
+            :currentIndex = "currentIndex"
+            @slide="handleSlide"
+            
+        )
+        info(
+            :currentWork = "currentWork"
+        )
+        
+
+script(type="text/x-template")#slider-display
+    .works__left(:data-slide="currentIndex + 1")
+        .works__slider
+            ul.works__slider-list
+                li.works__slider-item
+                    .works__preview-wrapper
+                        .works__preview
+                            //- +image(previewsFiles[4],"works__preview-img", "Пример работы")
+                            img(:src="currentWork.photo", alt="Пример работы").works__preview-img
+                            thumbs(
+                                :works="reversedWorks"
+                                :currentWork = "currentWork"
+                               
+                            )
+                        btns(
+                            @slide ="direction => $emit('slide',direction)"
+                        )
+                            
+                        
+
+script(type="text/x-template")#slider-thumbs
+    .works__preview-minilist-wrapper
+        ul.works__preview-minilist(ref="carousel")                      
+            li.works__preview-item(
+                v-for="work in works" :key="work.id"
+                :class="{active: currentWork.id === work.id}"
+                )
+                button(type="button" ).works__preview-item-btn
+                    //- +image(work.photo, "works__preview-item-img", "Пример работы")
+                    img(:src="work.photo", alt="Пример работы").works__preview-item-img
+
+script(type="text/x-template")#slider-btns
+    .works__slider-control
+        .works__slider-arrows
+            button(type="button" @click.prevent="$emit('slide','next')").works__slider-btn.works__slider-btn--up
+                +icon('arrow-down', 'arrow arrow--up')
+            button(type="button" @click.prevent="$emit('slide','prev')").works__slider-btn.works__slider-btn--down
+                +icon('arrow-down', 'arrow arrow--down')    
+
+script(type="text/x-template")#slider-info
+    .works__right
+        tags(
+         :tagsArray="tagsArray"
+        )
+        .works__desc
+            h3.works__desc-title.desc-title {{currentWork.title}}
+            .works__desc-text
+                p {{currentWork.desc}}
+        span.works__link-wrapper
+            a(:href="currentWork.link" target="_blank").works__link Посмотреть сайт 
+
+script(type="text/x-template")#slider-tags
+    .works__tech
+        ul.tech-list
+            li.tech-list__item.tech-item(v-for="tag in tagsArray") 
+                span.tech-stack {{tag}}                 

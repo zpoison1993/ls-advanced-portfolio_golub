@@ -7,6 +7,9 @@
 .footer__container {
     display: flex;;
     justify-content: space-between;
+    @include phones() {
+        flex-direction: column;
+    }
 }
 
 // .footer__data{
@@ -16,10 +19,23 @@
 .footer__copyright {
     // width: 30%;
     margin-right: 6.25rem;
+    @include tablets() {
+        margin-right: 8.25rem;
+    }
+    @include phones() {
+        margin-right: 0;
+    }
 }
 
 .copyright {
     padding-bottom: 1rem;
+    display: flex;
+    @include desktop {
+        flex-direction: column;
+    }
+    @include phones() {
+        
+    }
 }
 
 .copyright__year {
@@ -40,36 +56,85 @@
 .copyright__username {
     font-size: 18px;
     font-weight: bold;
-    padding-top: 0.8rem;
+    @include desktop() {
+       padding-top: 0.8rem; 
+    }
+    
 }
+
+.copyright__text {
+    padding-left: 50px;
+    @include desktop() {
+        padding-left: 0;
+    }
+}
+
 .copyright__desc{
     color: $year-color;
     padding-top: 30px;
+    @include phones() {
+        padding-top: 1rem;
+    }
 }
 
 .footer__data{
     flex:1;
+    @include tablets() {
+        flex: initial;
+    }
+    @include phones() {
+        flex: 1;
+    }
 }
 .footer__menu {
     margin-bottom: 30px;
 }
 .footer__data-columns {
     display: flex;
+    line-height: 1.875rem;
+    @include desktop() {
+        line-height: 1.2rem;
+    }
+    @include tablets() {
+        flex-direction: column;
+    }
 }
 
 .footer__data-col {
     display: flex;
     flex-direction: column;
+    
 }
 .footer__socials{
     margin-top: 1rem;
 }
+
+.footer__quote {
+    @include tablets() {
+        margin-top: 4rem;
+    }
+    
+}
 .footer__text, .blockqoute {
     color:$text-footer-color;
     padding-right: 5.5rem;
+    @include tablets() {
+        line-height: 1.6rem;
+    }
+}
+
+.blockqoute {
+    @include tablets() {
+        padding-bottom: 3%;
+        padding-right: 1.5rem;
+    }
+    @include phones() {
+        padding-bottom: 8%;
+        padding-right: 1.6rem;
+    }
 }
 
 .quote__author {
     font-style: italic;
-    padding-top: 1rem;
+    
 }

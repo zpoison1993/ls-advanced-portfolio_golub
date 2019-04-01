@@ -10,6 +10,10 @@
 .skill__shape {
     width: 11.5rem;
     height: 11.5rem;
+    @include phones() {
+        width: 9.5rem;
+        height: 9.5rem;
+    }
     fill: transparent;
     stroke: #ccc;
     stroke-width: 12px;
@@ -17,12 +21,22 @@
     
     
 }
+
+.skill__circle {
+    @include tablets() {
+        stroke-width: 12px;
+    }
+}
+
 .skill__circle--above {
     width: 200px;
     height: 200px;
     fill: transparent;
     // stroke: $skills-color;
     stroke-width: 20px;
+    @include tablets() {
+        stroke-width: 25px;
+    }
     stroke-dasharray: 500;
     // stroke-dashoffset: 280;
 }

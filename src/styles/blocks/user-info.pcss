@@ -1,17 +1,49 @@
 .user-info {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    text-align: center;
+    @include desktop() {
+    flex-direction: row;
+    text-align: left;
+    }
+    @include tablets() {
+        flex-direction: column;
+        // align-items: center;
+        text-align: center;
+        // justify-content: center;
+    }
 }
 .user-info__desc {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 18px;
-    text-align: right;
+    text-align: center;
     color: #939ca5;
-    padding-right: 2rem;
+    @include desktop() {
+        text-align: right;
+        padding-right: 2rem; 
+        font-size: 16px;
+    }
+    @include tablets() {
+        text-align: center;
+        padding-right: 0;
+        font-size: 14px; 
+    }
+    
 
 }
 .user-info__name {
     font-weight: 800;
     font-size: 72px;
     padding-left: 2rem;
+    @include tablets() {
+        padding-top: 30px;
+        font-size: 48px;
+        padding-left: 0;
+    }
+    @include phones() {
+        font-size: 36px;
+      
+    }
+
 }

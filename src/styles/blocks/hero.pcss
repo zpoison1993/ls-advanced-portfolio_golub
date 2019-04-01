@@ -1,6 +1,12 @@
 .hero {
-    height:100vh;
-    min-height: 650px;    
+    // height:100%;
+    min-height: 650px;
+    position: relative;
+    top:0;
+    width: 100%;  
+    @include tablets() {
+        height: 50vh;
+    }  
 }
 
 .hero__container {
@@ -24,4 +30,7 @@
 .hero__bottom-buttons {
     display: flex;
     justify-content: center;
+    @include tablets() {
+        display: none;
+    }
 }

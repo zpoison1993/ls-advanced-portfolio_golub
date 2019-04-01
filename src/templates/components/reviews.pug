@@ -1,0 +1,30 @@
+//- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+script(type="text/x-template")#reviews-list
+    section.reviews
+        .container.reviews__container
+            .reviews__title
+                h2.section-title Что обо мне говорят
+                .reviews__slider-controls
+                    .reviews__arrows
+                        button(type="button" @click="previous()").reviews__btn.reviews__btn--left
+                            +icon('arrow-down', 'arrow arrow--left')
+                        button(type="button" @click="next()").reviews__btn.reviews__btn--right
+                            +icon('arrow-down', 'arrow arrow--right')
+            .reviews__slider-wrapper
+                flickity(ref="flickity" :options="flickityOptions").reviews__slider
+                    .reviews__slider-item.carousel-cell(v-for="review in reviews" :key="review.id")
+                        review(
+                            :review="review"
+                        )
+
+script(type="text/x-template")#review
+    .review__frame
+        q.reviews__quote {{review.content}}
+        .reviews__author-wrapper
+            .reviews__author
+                .reviews__author-photoframe
+                    img(:src="review.photo", alt="Фотография человека,оставившего отзыв").reviews__author-img
+                    //- +image(`${item.photo}`, 'reviews__author-img', item.name)
+                .reviews__bio
+                    span.reviews__name {{review.name}}
+                    span.reviews__position {{review.position}}

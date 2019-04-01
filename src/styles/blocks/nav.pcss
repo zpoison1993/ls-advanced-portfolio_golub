@@ -6,12 +6,32 @@
 .nav__list {
     display: flex;
     align-items: center;
+    @include desktopMini() {
+        flex-wrap: wrap;
+    }
+}
+.nav-mobile {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & .nav__item{
+        margin-right: 0;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .nav__item {
     margin-right: 60px;
     &:last-child {
         margin-right: 0;
+    }
+    @include tablets() {
+        padding: 0.6rem 0;
     }
 
 }
