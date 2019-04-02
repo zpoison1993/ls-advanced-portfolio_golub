@@ -1,0 +1,144 @@
+.btn--edit-skill-block {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: svg-load(
+        "pencil.svg",
+        fill=rgba($text-color, 0.5),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+
+    transition: all .3s;
+
+    &:hover {
+      background: svg-load(
+        "pencil.svg",
+        fill=rgba($text-color, 1),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+    }
+}
+
+.btn--delete-skill-block {
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    background: svg-load("remove.svg", fill=#bf2929, width=100%, height=100%)
+      center center no-repeat;
+    transition: transform .2s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+}
+
+.btn--save-skill-block {
+    display: inline-block;
+    width: 15px;
+    height: 12px;
+    background: svg-load("tick.svg", fill=#00d70a, width=100%, height=100%)
+      center center no-repeat;
+    margin-right: 20px;
+    transition: transform .2s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+}
+
+.btn--edit-skill {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: svg-load(
+        "pencil.svg",
+        fill=rgba($text-color, 0.5),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+    margin-right: 20px !important;
+
+    transition: all .2s;
+
+    &:hover {
+      background: svg-load(
+        "pencil.svg",
+        fill=rgba($text-color, 1),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+    }
+}
+
+.btn--trash-skill {
+    display: inline-block;
+    width: 12px;
+    height: 15px;
+    background: svg-load(
+        "trash.svg",
+        fill=rgba($text-color, 0.5),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+
+    transition: all .2s;
+
+    &:hover {
+      background: svg-load(
+        "trash.svg",
+        fill=rgba($text-color, 1),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+    }
+}
+
+.btn--save-skill {
+    display: inline-block;
+    width: 15px;
+    height: 12px;
+    background: svg-load("tick.svg", fill=#00d70a, width=100%, height=100%)
+      center center no-repeat;
+    margin-right: 15px;
+    transition: transform .2s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+}
+
+.btn--delete-skill {
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    background: svg-load("remove.svg", fill=#bf2929, width=100%, height=100%)
+      center center no-repeat;
+    transition: transform .2s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+}
+
+.btn--add-skill {
+    padding: 7px 15px;
+    background-image: linear-gradient(to right, #006aed, #3f35cb);
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+}

@@ -12,5 +12,6 @@
   "bp-desktop": "1200px",
   "bp-desktop-mini": "1125px",
   "bp-tablets": "768px",
+  "bp-phablets": "690px",
   "bp-phones": "480px"
 }

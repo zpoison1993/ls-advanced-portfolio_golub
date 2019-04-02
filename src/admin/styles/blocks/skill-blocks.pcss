@@ -1,0 +1,26 @@
+.skill-blocks__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include phones() {
+        flex-direction: column;
+    }
+}
+.skill-blocks__item {
+    // flex: 1;
+    // width: calc(50% - 1.875rem);
+    width:46%;
+
+    // margin-left: 1.875rem;
+    margin-right: 1.875rem;
+    margin-bottom: 1.875rem;
+
+    @include phablets() {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    // flex-wrap: wrap;
+    box-shadow: 4px 3px 20px 0 rgba(0, 0, 0, 0.07);
+    background-color: #ffffff;
+  }
