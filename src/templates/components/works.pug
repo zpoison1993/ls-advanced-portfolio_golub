@@ -5,6 +5,7 @@ script(type="text/x-template")#slider-container
             :currentWork = "currentWork"
             :currentIndex = "currentIndex"
             @slide="handleSlide"
+            @change="handleClick"
             
         )
         info(
@@ -24,6 +25,7 @@ script(type="text/x-template")#slider-display
                             thumbs(
                                 :works="reversedWorks"
                                 :currentWork = "currentWork"
+                                @change="event => $emit('change', event)"
                                
                             )
                         btns(
@@ -39,7 +41,7 @@ script(type="text/x-template")#slider-thumbs
                 v-for="work in works" :key="work.id"
                 :class="{active: currentWork.id === work.id}"
                 )
-                button(type="button" ).works__preview-item-btn
+                button(type="button" @click.prevent="$emit('change',$event.currentTarget)").works__preview-item-btn
                     //- +image(work.photo, "works__preview-item-img", "Пример работы")
                     img(:src="work.photo", alt="Пример работы").works__preview-item-img
 
