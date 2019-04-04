@@ -13,8 +13,12 @@
 .edit-block__form {
     margin-top: 35px;
     display: flex;
-    @include tablets(){
+    @include phablets(){
         flex-direction: column;
         align-items: center;
+    }
+
+    &--reviews{
+        justify-content: flex-start;
     }
 }

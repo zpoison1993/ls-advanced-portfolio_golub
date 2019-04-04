@@ -1,0 +1,85 @@
+.reviews-block {
+    padding:25px;
+}
+
+.reviews-blocks__item--create{
+     
+    width: 100%;
+    
+    background: linear-gradient(90deg,blue,$skills-color 60%);
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &:hover , &:active, &:focus{
+        opacity: .8;
+        transition: 1s;
+        transform: scale(1.05);
+          transition: transform .2s;
+      }
+
+    @include phablets() {
+      display: flex;
+      align-items: center;
+      padding: 7%;
+    }  
+
+}
+
+.reviews-block__desc {
+    font-size: 16px;
+    font-weight: 600;
+    color: $footer-color;
+    line-height: 1.88;
+    margin-bottom: 30px;
+    min-height: 160px;
+    padding-right: 15%;
+    @include phablets() {
+        min-height: 100px;
+    }
+  }
+.reviews-block__btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.reviews-block__upper {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(31,35,45,.2);
+    margin-bottom: 1rem;
+  }
+
+  .reviews-author__img-frame {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    
+  }
+
+  .reviews-author__img {
+      border-radius: 50%;
+  }
+
+  .reviews-author__name {
+    color: $text-color;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .reviews-author__position {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(65, 76, 99, 0.5);
+  }
+
+  .reviews-block__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }

@@ -1,0 +1,26 @@
+.reviews-blocks__list {
+    display: flex;
+    
+    flex-wrap: wrap;
+    @include phones() {
+        flex-direction: column;
+    }
+}
+
+.reviews-blocks__item {
+    box-shadow: 4px 3px 20px 0 rgba(0, 0, 0, 0.07);
+    background-color: white;
+    width:32%;
+    margin-right: 1%;
+    
+    margin-bottom: 1.875rem;
+    @include tablets() {
+        width: 46%;
+
+    }
+    @include phablets() {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+  }
