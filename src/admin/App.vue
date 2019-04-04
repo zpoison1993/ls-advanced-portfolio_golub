@@ -29,7 +29,9 @@
             .user-info.header__col-content
               .user-info__avatar-frame
                 img(src="../images/content/user1.jpg" alt="Фотография пользователя").avatar
-              .user-info__name Владимир Голубь
+              .user-info__text
+                .user-info__name Владимир Голубь
+                a(href="").quit-btn.quit-btn--phone Выйти
             .admin-desc Панель администрирования
           .header__column.header__column--right
             a(href="").quit-btn Выйти
@@ -62,7 +64,7 @@
                       .skill-block__table
                         table.skill-tablelist
                       .skill-block__lower-row
-                        input(type="text" placeholder="Новый навык").skill__input.skill__input--title
+                        input(type="text" placeholder="Новый навык").skill__input.skill__input--title.skill__input--title-new
                         .skill__percents.skill__percents--new-skill
                           input(type="text" placeholder="100").skill__input.skill__input--percents.skill__input--percents-new
                           span.skill__percent-symbol %
@@ -140,7 +142,7 @@
                                   button(type='button').btn.btn--edit-skill
                                   button(type='button').btn.btn--trash-skill
                       .skill-block__lower-row
-                        input(type="text" placeholder="Новый навык").skill__input.skill__input--title
+                        input(type="text" placeholder="Новый навык").skill__input.skill__input--title.skill__input--title-new
                         .skill__percents.skill__percents--new-skill
                           input(type="text" placeholder="100").skill__input.skill__input--percents.skill__input--percents-new
                           span.skill__percent-symbol %
@@ -234,7 +236,7 @@
                   .form__upload-img-container
                     .form__upload-img-content
                       span.form__upload-img-desc Перетащите или загрузите для загрузки изображения
-                      button(type="button").btn.btn--upload-works-img Загрузить
+                      button(type="button").btn.btn--upload-works-img ЗАГРУЗИТЬ
                 .form__upload-text
                   .form__row
                     .form__col
@@ -255,7 +257,7 @@
                     .form__col
                       label.form__text-block
                         span.form__label Добавление тега
-                        input.form__input.form__input--tags(type="text" name="tags" placeholder="Если хотите, добавьте теги")
+                        input.form__input.form__input--tags(type="text" name="tags" placeholder="Добавьте теги")
                   .form__row
                     .form__col
                       ul.form__tags-list
@@ -269,7 +271,7 @@
                           span.form__tags-name JavaScript
                           button(type="button").btn.btn--remove-tag
                   .form__row.form__row--btns
-                    .form__col
+                    .form__col.form__col--btns
                       .form__btns
                         button(type="button").btn.btn--cancel Отмена
                         button(type="button").btn.btn--save Сохранить
@@ -279,11 +281,11 @@
                   button(type="button").btn.btn--create-new
                     span.create-new__icon
                     h4.create-new__title Добавить работу
-                li.works-blocks__item
+                li.works-blocks__item.works-blocks__item--edit
                   .works-block
                     .works-block__img-wrapper
                       img(src="../images/content/work1.jpg" alt="Превью одной из работ").works-block__img
-                      .works-blcok__tags
+                      .works-block__tags
                         .tags
                           ul.tags__list
                             li.tags_item HTML
@@ -291,15 +293,48 @@
                             li.tags_item JavaScript
                     .works-block__info
                       h5.works-block__title Сайт школы образования
-                      works-block__desc
+                      .works-block__desc
                         p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
                       a(href="http://loftschol.com").works-block__link http://loftschool.com
                       .works-block__btns
                         button(type="button").btn.btn--works-block-edit Править
                         button(type="button").btn.btn--works-block-remove Удалить    
-
-
-
+                li.works-blocks__item
+                  .works-block
+                    .works-block__img-wrapper
+                      img(src="../images/content/work2.jpg" alt="Превью одной из работ").works-block__img
+                    .works-block__info
+                      h5.works-block__title Сайт школы образования
+                      .works-block__desc
+                        p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                      a(href="http://loftschol.com").works-block__link http://loftschool.com
+                      .works-block__btns
+                        button(type="button").btn.btn--works-block-edit Править
+                        button(type="button").btn.btn--works-block-remove Удалить   
+                li.works-blocks__item
+                  .works-block
+                    .works-block__img-wrapper
+                      img(src="../images/content/work3.jpg" alt="Превью одной из работ").works-block__img
+                    .works-block__info
+                      h5.works-block__title Сайт школы образования
+                      .works-block__desc
+                        p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                      a(href="http://loftschol.com").works-block__link http://loftschool.com
+                      .works-block__btns
+                        button(type="button").btn.btn--works-block-edit Править
+                        button(type="button").btn.btn--works-block-remove Удалить   
+                li.works-blocks__item
+                  .works-block
+                    .works-block__img-wrapper
+                      img(src="../images/content/work4.jpg" alt="Превью одной из работ").works-block__img
+                    .works-block__info
+                      h5.works-block__title Сайт школы образования
+                      .works-block__desc
+                        p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                      a(href="http://loftschol.com").works-block__link http://loftschool.com
+                      .works-block__btns
+                        button(type="button").btn.btn--works-block-edit Править
+                        button(type="button").btn.btn--works-block-remove Удалить   
 </template>
 
 <script>

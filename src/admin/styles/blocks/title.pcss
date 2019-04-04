@@ -8,6 +8,9 @@
     color:$text-color;
     &--about {
         margin-right: 60px;
+        @include phones() {
+            padding-bottom: 25px;
+        }
     }
 }
 
@@ -15,9 +18,9 @@
     font-size: 18px;
   font-weight: bold;
   border-bottom: 1px solid rgba(#1f232d, 0.2);
-  padding-bottom: 25px;
-  padding-left: 10px;
-  margin-bottom: 50px;
+  padding-bottom: 20px;
+  padding-left: 5px;
+  
 
   @include tablets {
     margin-bottom: 4%;

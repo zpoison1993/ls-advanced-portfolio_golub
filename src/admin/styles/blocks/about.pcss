@@ -1,6 +1,9 @@
 .about__container {
     display: flex;
     flex-direction: column;
+    @include phones() {
+        width: 100%;
+    }
 }
 
 .about__blocks {

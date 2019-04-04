@@ -3,6 +3,9 @@
 }
 .tabs__item {
     padding: 30px;
+    @include phones() {
+    padding: 30px 20px;
+    }
     &:first-child{
         font-weight: 600;
         color:$skills-color;
