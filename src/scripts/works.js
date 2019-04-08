@@ -100,15 +100,43 @@ new Vue({
         return console.log(dYTransform)
         },
         handleSlide(direction) {
+            const minilist = document.querySelector('.works__preview-minilist')
+            
             switch (direction) {
                 case 'next' :
                 this.currentIndex++;
-                
+                console.log(this.currentIndex);
+                if(this.currentIndex>2 && this.currentIndex<=4) {
+                    
+                    minilist.style.transform = "translateY(20%)";
+                    minilist.style.transition = "1s";
+
+                }
+                else if (this.currentIndex>4) {
+                    minilist.style.transform = "translateY(-40%)";
+                    minilist.style.transition = "1s";
+                }
+
                 // getTransform(data);
                 break;
                 case 'prev' :
+               
                 this.currentIndex--;
+                console.log(this.currentIndex);
                 // getTransform(data);
+                // if(this.currentIndex<3 && this.currentIndex>0) {
+                if(this.currentIndex>2 ) {    
+                    minilist.style.transform = "translateY(-20%)";
+                    minilist.style.transition = "1s";
+                }
+                else if(this.currentIndex==2) {
+                    minilist.style.transform = "translateY(-40%)";
+                    minilist.style.transition = "1s";
+                }
+                else if (this.currentIndex<0) {
+                    minilist.style.transform = "translateY(20%)";
+                    minilist.style.transition = "1s";
+                }
                 break;
             }
         },
@@ -117,7 +145,21 @@ new Vue({
             const worksAmount = this.works.length-1; 
             if (value > worksAmount) this.currentIndex = 0;
             if(value < 0) this.currentIndex = worksAmount;
+            
         },
+
+        handleClick(event) {
+            const links = document.querySelectorAll('.works__preview-item');
+            Array.from(links).forEach(el => {
+                el.classList.remove('active');
+            });
+            event.parentNode.classList.add('active');
+            const index = [].indexOf.call(links, event.parentNode);
+            const worksAmount = this.works.length - 1;
+            this.currentIndex= worksAmount - index;
+    }
+            
+          
 
     },
     created() {

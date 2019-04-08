@@ -1,0 +1,16 @@
+.tabs {
+    display: flex;
+}
+.tabs__item {
+    padding: 30px;
+    @include phones() {
+    padding: 30px 20px;
+    }
+    &:first-child{
+        font-weight: 600;
+        color:$skills-color;
+        border-style: solid;
+        border-width: 0px 0px 5px 0px;
+        border-color: $skills-color;
+    }
+}

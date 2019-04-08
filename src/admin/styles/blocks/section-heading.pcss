@@ -1,0 +1,38 @@
+.section-heading {
+    display: flex;
+    padding: 55px 0;
+    @include phones() {
+        padding: 35px 0;
+    }
+}
+.about__section-heading {
+    display: flex;
+    align-items: center;
+    @include phones {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 85%;
+        margin: 0 auto;
+      }
+}
+
+
+.btn--add-skills-group {
+    font-weight: 600;
+    color: #383bcf;
+    position: relative;
+    &::before{
+        content: "+";
+      padding: 2.5px 5.2px;
+      color: #fff;
+      display: inline-block;
+      background-image: linear-gradient(to right, #006aed, #3f35cb);
+      border-radius: 50%;
+      margin-right: 10px;
+      flex-shrink: 0;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1;
+
+    }
+}

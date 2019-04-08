@@ -1,0 +1,77 @@
+.skill-block {
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  
+    &--new {
+      .skill-block__title {
+        border-bottom: 1px solid #000;
+      }
+  
+      .skill-block__new-type-btns {
+        display: inline-block;
+      }
+  
+      .skill-block__existing-type-btns {
+        display: none;
+      }
+    }
+  }
+
+  .skill-block__upper-row {
+    border-bottom: 1px solid rgba(#1f232d, .15);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+
+.skill-block__upper-btns {
+    display: flex;
+    align-items: center;
+}
+
+.skill-block__title {
+    border: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: $text-color;
+  width: 60%;
+  padding-bottom: 10px;
+  @include desktopMini {
+      font-size: 16px;
+  }
+  @include tablets {
+    width: 70%;
+  }
+}
+  .skill-block__new-type-btns {
+    display: none;
+  }
+
+  .skill-block__existing-type-btns {
+    display: inline-block;
+  }
+
+
+
+.skill-block__table {
+    width: 100%;
+    flex: 1;
+    overflow: auto;
+    min-height: 50px;
+    margin-bottom: 20px;
+}
+
+.skill-block__lower-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    @include phones() {
+      .skill__input--title {
+        width: 50%;
+      }
+    }
+}

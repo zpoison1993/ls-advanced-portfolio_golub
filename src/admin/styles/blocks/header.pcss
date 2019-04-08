@@ -1,0 +1,46 @@
+.header {
+    background: #444471;
+    padding:15px 0;
+  }
+  
+  .header__container {
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+  }
+  
+  .header__column--left {
+    display:flex;
+    align-items:center;
+  }
+  .header__col-content{
+    display:flex;
+    align-items: center;
+    font-size:18px;
+    font-weight:600;
+    color:white;
+    margin-right: 15px;
+  }
+
+
+  .admin-desc {
+    color: $text-color-pale;
+    font-weight: 400;
+    @include phones() {
+      display: none;
+    }
+  }
+  .quit-btn {
+    color:white;
+    font-weight: 400;
+    text-decoration:underline;
+    @include phones() {
+      display: none;
+    }
+    &--phone {
+      display: none;
+      @include phones() {
+        display: flex;
+      }
+    }
+  }
