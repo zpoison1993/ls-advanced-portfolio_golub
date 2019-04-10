@@ -3,10 +3,19 @@
         .container.about__container
             .section-heading.about__section-heading
                 h2.title.title--about Блок "Обо мне"
-                button(type='button').btn.btn--add-skills-group Добавить группу
+                button(type='button' @click = "showAddingForm = true"
+                v-if='showAddingForm===false').btn.btn--add-skills-group Добавить группу
             .about__blocks
                 .skill-blocks
                     ul.skill-blocks__list
+                    pre {{skills}}    
+                        li.skill-blocks__item(v-if="showAddingForm")
+                            skillsAdd()
+                        li.skill-blocks__item(v-for = "category in categories"
+                        :key="category.id")
+                            skillsGroup(
+                                :category="category"
+                            )
                         li.skill-blocks__item
                             .skill-block.skill-block--new
                                 .skill-block__upper-row
@@ -182,3 +191,44 @@
                                     span.skill__percent-symbol %
                                 button(type="button").btn.btn--add-skill +
 </template>
+
+<script>
+import { mapActions, mapState } from 'vuex';
+export default {
+    components: {
+        skillsAdd: () => import('../skills-add.vue'),
+        skillsGroup: () => import('../skills-group.vue')
+    },
+    data() {
+        return {
+            showAddingForm: false
+        }
+    },
+    computed: {
+        ...mapState('categories', {
+            categories: state => state.categories
+        }),
+        ...mapState('skills', {
+            skills: state => state.skills
+        })
+    },
+    methods: {
+        ...mapActions('categories',['fetchCategories']),
+        ...mapActions('skills',['fetchSkills'])
+    },
+
+    async created() {
+        try{
+          await this.fetchCategories();
+        }catch(error) {
+            alert('Произошла ошибка загрузки категорий!')
+        };
+
+        try{
+          await this.fetchSkills();
+        }catch(error) {
+            alert('Произошла ошибка загрузки скиллов!')
+        }
+    },
+}
+</script>

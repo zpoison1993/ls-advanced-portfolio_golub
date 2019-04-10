@@ -67,33 +67,6 @@ export default {
   }
 };
 
-//data() {
-//     return {
-//       disableSubmit: false,
-//       user: {
-//         name: "",
-//         password: ""
-//       }
-//     };
-//   },
-//   components: {
-//     appInput
-//   },
-//   methods: {
-//     async login() {
-//       if ((await this.$validate()) === false) return;
-//       this.disableSubmit = true;
-//       try {
-//         axios
-//           .post("//jsonplaceholder.typicode.com/posts", {
-//             name: this.user.name,
-//             password: this.user.password
-//           })
-//           .then(response => {
-//             const report = JSON.stringify(response, null, 2);
-//             console.log(report);
-//           });
-//       } catch (error) {
 </script>
 
 
