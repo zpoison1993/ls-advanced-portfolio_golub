@@ -15,6 +15,6 @@ export default {
           Object.keys(userObj).length === 0 && userObj.constructor === Object;
   
         return userObjectIsEmpty === false;
-      }
+      },
     }
   };

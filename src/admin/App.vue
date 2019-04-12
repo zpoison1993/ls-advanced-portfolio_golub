@@ -1,19 +1,22 @@
 <template lang="pug"> 
   .content-wrapper
-    appHeader()
-    appTabs()    
+    appHeader(v-if="userIsLogged")
+    appTabs(v-if="userIsLogged")    
     router-view
 
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   name: "app-root",
   components: {
     appHeader: () => import("./components/app-header.vue"),
     appTabs: () => import("./components/app-tabs.vue")
+  },
+  computed: {
+    ...mapGetters('user', ['userIsLogged'])
   }
 };
 

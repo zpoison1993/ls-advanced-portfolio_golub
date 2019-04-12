@@ -10,5 +10,21 @@
                     a(href="").quit-btn.quit-btn--phone Выйти
                 .admin-desc Панель администрирования
             .header__column.header__column--right
-                a(href="").quit-btn Выйти
+                a(href="#" @click='exit').quit-btn Выйти
 </template>
+
+<script>
+import { mapState, mapGetters } from 'vuex';
+export default {
+
+  methods: {
+    exit() {
+    localStorage.removeItem("token");
+    window.location.href= '/login';
+    location.reload()
+
+    
+    }
+  }
+}
+</script>

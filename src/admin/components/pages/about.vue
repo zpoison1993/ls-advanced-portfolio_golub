@@ -7,14 +7,14 @@
                 v-if='showAddingForm===false').btn.btn--add-skills-group Добавить группу
             .about__blocks
                 .skill-blocks
-                    ul.skill-blocks__list
-                    pre {{skills}}    
+                    ul.skill-blocks__list   
                         li.skill-blocks__item(v-if="showAddingForm")
                             skillsAdd()
                         li.skill-blocks__item(v-for = "category in categories"
                         :key="category.id")
                             skillsGroup(
                                 :category="category"
+                                :skills="filterSkillsByCategoryId(category.id)"
                             )
                         li.skill-blocks__item
                             .skill-block.skill-block--new
@@ -214,7 +214,10 @@ export default {
     },
     methods: {
         ...mapActions('categories',['fetchCategories']),
-        ...mapActions('skills',['fetchSkills'])
+        ...mapActions('skills',['fetchSkills']),
+        filterSkillsByCategoryId(categoryId) {
+            return this.skills.filter(skill => skill.categoty === categoryId)
+        }
     },
 
     async created() {

@@ -1,7 +1,7 @@
 export default [
     {
       path: "/",
-      component: () => import("../components/pages/about.vue"),
+      component: () => import("../components/pages/aboutMe.vue"),
       meta: {
         title: "Блок «Обо мне»"
       }
