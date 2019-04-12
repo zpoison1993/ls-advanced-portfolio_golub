@@ -8,7 +8,7 @@ export default [
     },
     {
       path: "/works",
-      component: () => import("../components/pages/works.vue"),
+      component: () => import("../components/pages/works2.vue"),
       meta: {
         title: "Блок «Работы»"
       }
