@@ -136,7 +136,7 @@ export default {
   computed: {
     ...mapState("works", {
       editBlock: state => state.editBlock,
-      editedWork: state => state.editedWork,
+      changedWork: state => state.editedWork,
       editedTags: state => state.editedTags
     }),
     remotePhotoPath() {
@@ -148,7 +148,7 @@ export default {
   },
   methods: {
     ...mapActions("works", ["addWork", "editWork"]),
-    ...mapMutations("works", ["CLOSE_FORM"]),
+    ...mapMutations("works", ["CLOSE_FORM", "ADD_TAGS"]),
     appendFileAndRenderPhoto(e) {
       const file = e.target.files[0];
       this.work.photo = file;
@@ -204,7 +204,7 @@ export default {
     },
   },
   created() {
-    if (this.workForm.editMode) {
+    if (this.editBlock.editMode) {
       this.setEditedWork();
       this.work.techs = "";
     }

@@ -29,7 +29,7 @@ export default {
   methods: {
   },
   created() {
-    this.editBlock.show = true;
+    this.editBlock.show = false;
   }
 }
 </script>

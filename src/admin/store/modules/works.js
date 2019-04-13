@@ -39,13 +39,13 @@ export default {
       },
   
       TURN_EDIT_MODE_ON: (state, work) => {
-        state.workForm.editMode = true;
+        state.editBlock.editMode = true;
         state.editedWork = {...work};
         state.editedTags = state.editedWork.techs.split(',');
       },
   
       TURN_EDIT_MODE_OFF: (state) => {
-        state.workForm.editMode = false;
+        state.editBlock.editMode = false;
         state.editedWork = {};
         state.editedTags = [];
       },
