@@ -5,7 +5,8 @@
     span.input__title(v-if="title") {{title}} 
     input(
       v-bind="$attrs"
-      :value="value" 
+      :value="value"
+      placeholder = "Введите значение" 
       @input="$emit('input', $event.target.value)"
     ).input__elem.field__elem
 
@@ -112,9 +113,9 @@ export default {
   position: relative;
 }
 .input__title {
-  color: rgba(65, 76, 99, 0.5);
+  color: #939ca5;
   font-weight: 600;
-  opacity: 0.5;
+  // opacity: 0.5;
 }
 .textarea__elem {
   height: 150px;
@@ -126,10 +127,13 @@ export default {
   width: 100%;
 }
 .input__elem {
+  font-size: 1rem;
+  font-weight:600;
+  line-height: 1.15;
   width: 100%;
-  padding: 10px 8%;
+  padding: 10px 0;
   border: none;
-  border-bottom: 1px solid #1f232d;
+  border-bottom: 1px solid #414c63;
   &::placeholder {
     color: rgba(55, 62, 66, 0.25);
   }

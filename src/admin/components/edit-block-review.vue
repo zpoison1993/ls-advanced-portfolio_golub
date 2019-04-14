@@ -16,7 +16,7 @@
               error-tooltip(
                 :errorText="validation.firstError('renderedPhotoUrl')"
               )
-          button(type="button").btn.btn--upload-reviews-img Добавить фото
+          .btn.btn--upload-reviews-img Добавить фото
 
       .form__upload-text.form__upload-text--reviews
         .form__row.form__row--author-data
@@ -27,7 +27,7 @@
             )
               span.form__label Имя автора
               input.form__input.form__input--name(type="text" name="name" placeholder="Введите имя автора" v-model="review.author")
-              .form__text-block-error
+              .form__text-error
                 error-tooltip(
                   :errorText="validation.firstError('review.author')"
                 )
@@ -38,7 +38,7 @@
             )
               span.form__label Титул автора
               input.form__input.form__input--position(type="text" name="position" placeholder="Введите титул автора" v-model="review.occ")
-              .form__text-block-error
+              .form__text-error
                 error-tooltip(
                   :errorText="validation.firstError('review.occ')"
                 )
@@ -50,7 +50,7 @@
             )
               span.form__label Отзыв
               textarea.form__textarea(name="review" rows="4" placeholder="Введите Ваш отзыв" v-model="review.text")
-              .form__text-block-error
+              .form__text-error
                 error-tooltip(
                   :errorText="validation.firstError('review.text')"
                 )
@@ -181,4 +181,70 @@ export default {
     .filled {
         background: center center no-repeat / cover;
     }
+
+    .form__upload-img-wrapper {
+        text-align:center;
+    }
+
+
+    .form__upload-img-error {
+        bottom:-7.125rem;
+    }
+
+    
+.form__upload-img-container {
+    flex-direction:column;
+    position:relative;
+}   
+.form__upload-img-input {
+    position:absolute;
+    top:0;
+    left:-9999px;
+}
+
+.input__error-tooltip-container {
+    position:relative;
+}
+
+.form__upload-img-container {
+    .form__upload-img-error {
+            display:none;
+    }
+
+    &.error {
+        position:relative;
+        .form__upload-img-error {
+        display:block;
+        position: absolute;
+        bottom:-50px;
+}
+    }
+}
+
+
+.form__text-block {
+    .form__text-error {
+            display:none;
+    }
+
+    &.error {
+        position:relative;
+        .form__text-error {
+        display:block;
+        position: absolute;
+        bottom:-50px;
+}
+    }
+}
+
+    .form__upload-img-wrapper {
+        margin-top:0;
+    }
+
+.form__upload-img-container--reviews.filled  {
+    &::after {
+    display:none;
+    }
+
+}
 </style>

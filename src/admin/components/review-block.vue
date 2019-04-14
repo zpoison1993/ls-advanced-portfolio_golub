@@ -45,3 +45,18 @@ export default {
   }
 };
 </script>
+
+<style lang="postcss">
+.reviews-author__img-frame {
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
+.reviews-author__img {
+   width: 3.125rem;
+    height: 3.125rem;
+    margin-right: 1.25rem;
+    background: center center no-repeat / cover; 
+}
+    
+</style>

@@ -11,14 +11,14 @@
                         type="file"
                         @change="appendFileAndRenderPhoto"
                     ).form__upload-img-input
+                    
+                    .form__upload-img-content
+                        span.form__upload-img-desc Перетащите или загрузите для загрузки изображения
+                        .btn.btn--upload-works-img ЗАГРУЗИТЬ
                     .form__upload-img-error
                         error-tooltip(
                         :errorText="validation.firstError('renderedPhotoUrl')"
                         )
-                    .form__upload-img-content
-                        span.form__upload-img-desc Перетащите или загрузите для загрузки изображения
-                        button(type="button").btn.btn--upload-works-img ЗАГРУЗИТЬ
-
             .form__upload-text
                 .form__row
                     .form__col
@@ -28,10 +28,10 @@
                         )
                             span.form__label Название
                             input.form__input.form__input--title(type="text" name="title" placeholder="Введите название работы" v-model="work.title")
-                            .form__text-block-error
+                            .form__text-error
                                 error-tooltip(
                                 :errorText="validation.firstError('work.title')"
-                            )
+                                )
                 .form__row
                     .form__col
                         label.form__text-block(
@@ -40,7 +40,7 @@
                         )
                             span.form__label Ссылка
                             input.form__input.form__input--link(type="text" name="link" placeholder="Вставьте ссылку" v-model="work.link")
-                            .form__text-block-error
+                            .form__text-error
                                 error-tooltip(
                                 :errorText="validation.firstError('work.link')"
                             )
@@ -52,10 +52,11 @@
                         )
                             span.form__label Описание
                             textarea.form__textarea(name="description" rows="4" placeholder="Введите описание работы" v-model="work.description")
-                            .form__text-block-error
+                            .form__text-error
                                 error-tooltip(
                                 :errorText="validation.firstError('work.description')"
                             )
+                            
                 .form__row.form__row--tags
                     .form__col
                         label.form__text-block(
@@ -67,10 +68,17 @@
                             v-model="work.techs"
                             @change="ADD_TAGS(work.techs)"
                             )
-                            .form__text-block-error
+                            .form__text-error
                                 error-tooltip(
                                 :errorText="validation.firstError('editedTagsAsString')"
                             )
+                .form__row.form__row--tags
+                    .form__col
+                        tagsBlock(
+                            v-model="work.techs"
+                            @removeTag="value => this.work.techs = value"
+                            :errorText="validation.firstError('editedTagsAsString')"
+                        )
                 .form__row
                     .form__col(v-if="editBlock.editMode")
                         
@@ -118,7 +126,7 @@ export default {
     }
   },
   components: {
-    // formTags: () => import("./formTags.vue"),
+    tagsBlock: () => import("./tags-block.vue"),
     errorTooltip: () => import("./error-tooltip.vue")
   },
   data() {
@@ -136,7 +144,7 @@ export default {
   computed: {
     ...mapState("works", {
       editBlock: state => state.editBlock,
-      changedWork: state => state.editedWork,
+      changedWork: state => state.changedWork,
       editedTags: state => state.editedTags
     }),
     remotePhotoPath() {
@@ -186,7 +194,7 @@ export default {
       return formData;
     },
     setEditedWork() {
-      this.work = { ...this.editedWork };
+      this.work = { ...this.changedWork };
       this.renderedPhotoUrl = this.remotePhotoPath;
     },
     async saveEditedWork() {
@@ -213,8 +221,66 @@ export default {
 </script>
 
 <style lang="postcss">
+@import "../../styles/mixins.pcss";
 .filled {
     background: center center no-repeat / cover;
+
+    & .form__upload-img-content {
+        transform: translateY(150%);
+        transition: transform 1s;
+        @include phablets() {
+            transform:translateY(0);
+        }
+    }
 }
-    
+
+
+
+.form__upload-img-container {
+    flex-direction:column;
+    position:relative;
+}   
+.form__upload-img-input {
+    position:absolute;
+    top:0;
+    left:-9999px;
+}
+
+.input__error-tooltip-container {
+    position:relative;
+}
+
+.form__upload-img-container {
+    .form__upload-img-error {
+            display:none;
+    }
+
+    &.error {
+        position:relative;
+        .form__upload-img-error {
+        display:block;
+        position: absolute;
+        bottom:-50px;
+}
+    }
+}
+
+
+.form__text-block {
+    .form__text-error {
+            display:none;
+    }
+
+    &.error {
+        position:relative;
+        .form__text-error {
+        display:block;
+        position: absolute;
+        bottom:-50px;
+}
+    }
+}
+
+
+
 </style>

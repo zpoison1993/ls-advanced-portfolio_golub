@@ -6,10 +6,17 @@ export default {
         show: false,
         editMode: false
       },
-      editedWork: {},
+      changedWork: {},
       editedTags: []
     },
     mutations: {
+      SHOW_FORM: (state) => {
+            state.editBlock.show = true;
+      },
+      
+      CLOSE_FORM: (state) => {
+            state.editBlock.show = false;
+      },
       SET_WORKS: (state, works) => {
         state.works = works;
       },
@@ -24,29 +31,21 @@ export default {
         );
       },
   
-      EDIT_WORK: (state, editedWork) => {
+      EDIT_WORK: (state, changedWork) => {
         state.works = state.works.map(work =>
-          work.id === editedWork.id ? editedWork : work
+          work.id === changedWork.id ? changedWork : work
         );
-      },
-  
-      SHOW_FORM: (state) => {
-        state.editBlock.show = true;
-      },
-  
-      CLOSE_FORM: (state) => {
-        state.editBlock.show = false;
       },
   
       TURN_EDIT_MODE_ON: (state, work) => {
         state.editBlock.editMode = true;
-        state.editedWork = {...work};
-        state.editedTags = state.editedWork.techs.split(',');
+        state.changedWork = {...work};
+        state.editedTags = state.changedWork.techs.split(',');
       },
   
       TURN_EDIT_MODE_OFF: (state) => {
         state.editBlock.editMode = false;
-        state.editedWork = {};
+        state.changedWork = {};
         state.editedTags = [];
       },
   
