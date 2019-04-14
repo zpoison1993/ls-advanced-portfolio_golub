@@ -25,6 +25,7 @@ export default {
 .tags {
   display: flex;
   flex-wrap: wrap;
+  padding: 0 10%;
 }
 .tags__remove {
   width: 11px;

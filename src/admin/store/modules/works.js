@@ -40,26 +40,26 @@ export default {
       TURN_EDIT_MODE_ON: (state, work) => {
         state.editBlock.editMode = true;
         state.changedWork = {...work};
-        state.editedTags = state.changedWork.techs.split(',');
+        // state.editedTags = state.changedWork.techs.split(',');
       },
   
       TURN_EDIT_MODE_OFF: (state) => {
         state.editBlock.editMode = false;
         state.changedWork = {};
-        state.editedTags = [];
+        // state.editedTags = [];
       },
   
-      REMOVE_TAG: (state, deletedTag) => {
-        state.editedTags = state.editedTags.filter(tag =>
-          tag !== deletedTag
-        );
-      },
+    //   REMOVE_TAG: (state, deletedTag) => {
+    //     state.editedTags = state.editedTags.filter(tag =>
+    //       tag !== deletedTag
+    //     );
+    //   },
   
-      ADD_TAGS: (state, addingTags) => {
-        let tagsForAdd = addingTags.split(',');
-        tagsForAdd = tagsForAdd.filter(tag => tag !== "");
-        state.editedTags = [...state.editedTags, ...tagsForAdd];
-      },
+    //   ADD_TAGS: (state, addingTags) => {
+    //     let tagsForAdd = addingTags.split(',');
+    //     tagsForAdd = tagsForAdd.filter(tag => tag !== "");
+    //     state.editedTags = [...state.editedTags, ...tagsForAdd];
+    //   },
   
   
     },
@@ -105,9 +105,9 @@ export default {
         }
       },
   
-      async editWork({ commit }, work) {
+      async editWork({ commit }, workData) {
         try {
-          const response = await this.$axios.post(`/works/${work.id}`, work);
+          const response = await this.$axios.post(`/works/${workData.id}`, workData);
           commit("EDIT_WORK", response.data.work);
           return response;
         } catch (error) {

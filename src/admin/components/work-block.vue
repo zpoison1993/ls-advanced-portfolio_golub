@@ -3,11 +3,10 @@
         .works-block__img-wrapper
             img(:src="remotePhotoPath" alt="Превью работы").works-block__img
             .works-block__tags
-                .tags
-                    ul.tags__list
-                        li.tags_item HTML
-                        li.tags_item CSS
-                        li.tags_item JavaScript
+              tags(
+              :tags="tagsArray"
+              :interactive="false"
+              )
         .works-block__info
             h5.works-block__title {{work.title}}
              .works-block__desc
@@ -26,7 +25,7 @@
 import { mapActions, mapMutations } from "vuex";
 export default {
   components: {
-    // workTags: () => import("./workTags.vue")
+    tags: () => import("./tags.vue")
   },
   props: {
     work: Object

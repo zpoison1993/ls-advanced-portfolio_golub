@@ -57,31 +57,16 @@
                                 :errorText="validation.firstError('work.description')"
                             )
                             
-                .form__row.form__row--tags
-                    .form__col
-                        label.form__text-block(
-                            for="tags"
-                            :class="{'error' : validation.firstError('editedTagsAsString')}"
-                        )
-                            span.form__label Добавление тега
-                            input.form__input.form__input--tags(type="text" name="tags" placeholder="Добавьте теги"
-                            v-model="work.techs"
-                            @change="ADD_TAGS(work.techs)"
-                            )
-                            .form__text-error
-                                error-tooltip(
-                                :errorText="validation.firstError('editedTagsAsString')"
-                            )
+
                 .form__row.form__row--tags
                     .form__col
                         tagsBlock(
                             v-model="work.techs"
                             @removeTag="value => this.work.techs = value"
-                            :errorText="validation.firstError('editedTagsAsString')"
+                            :errorText="validation.firstError('work.techs')"
                         )
-                .form__row
-                    .form__col(v-if="editBlock.editMode")
-                        
+
+
                 .form__row.form__row--btns
                     .form__col
                         .form__btns
@@ -104,7 +89,7 @@
 
 <script>
 import { mapActions, mapMutations, mapState } from "vuex";
-// import { BASE_URL } from "@/helpers/consts";
+
 import { Validator } from "simple-vue-validator";
 export default {
   mixins: [require("simple-vue-validator").mixin],
@@ -121,7 +106,7 @@ export default {
     "work.description": value => {
       return Validator.value(value).required("Введите описание");
     },
-    "editedTagsAsString": value => {
+    "work.techs": value => {
       return Validator.value(value).required("Рекомендуется указать какой-либо тег");
     }
   },
@@ -145,18 +130,19 @@ export default {
     ...mapState("works", {
       editBlock: state => state.editBlock,
       changedWork: state => state.changedWork,
-      editedTags: state => state.editedTags
+    //   editedTags: state => state.editedTags
     }),
     remotePhotoPath() {
       return `https://webdev-api.loftschool.com/${this.work.photo}`;
     },
-    editedTagsAsString() {
-      return this.editedTags.join(',');
-    }
+    // editedTagsAsString() {
+    //   return this.editedTags.join(',');
+    // }
   },
   methods: {
     ...mapActions("works", ["addWork", "editWork"]),
     ...mapMutations("works", ["CLOSE_FORM", "ADD_TAGS"]),
+    
     appendFileAndRenderPhoto(e) {
       const file = e.target.files[0];
       this.work.photo = file;
@@ -170,6 +156,7 @@ export default {
         console.error(error.message);
       }
     },
+    
     async addNewWork() {
       if ((await this.$validate()) === false) return;
       try {
@@ -182,15 +169,33 @@ export default {
     },
     createWorkFormData() {
       const formData = new FormData();
-      formData.append("title", this.work.title);
-      if (this.editBlock.editMode) {
-        formData.append("techs", this.editedTagsAsString);
-      } else {
+    //   if (this.editBlock.editMode) {
+    //     formData.append("title", this.changedWork.title);
+    //   }
+    //   else {        
+        formData.append("title", this.work.title);
+    //   }
+    //   if (this.editBlock.editMode) {
+    //     formData.append("techs", this.changedWork.techs);
+    //   } else {
         formData.append("techs", this.work.techs);
-      }
-      formData.append("photo", this.work.photo);
-      formData.append("link", this.work.link);
-      formData.append("description", this.work.description);
+    //   }
+    //   if (this.editBlock.editMode) {
+    //     formData.append("photo", this.changedWork.photo);
+    //   } else {
+          formData.append("photo", this.work.photo);
+    //   }
+    //   if (this.editBlock.editMode) {
+    //     formData.append("link", this.changedWork.link);
+    //   } else {
+        formData.append("link", this.work.link);  
+    //   }
+    //   if (this.editBlock.editMode) {
+    //       formData.append("description", this.changedWork.description);
+    //   } else {
+          formData.append("description", this.work.description);
+    //   }
+      
       return formData;
     },
     setEditedWork() {
@@ -214,7 +219,7 @@ export default {
   created() {
     if (this.editBlock.editMode) {
       this.setEditedWork();
-      this.work.techs = "";
+    //   this.work.techs = "";
     }
   }
 };
@@ -226,7 +231,7 @@ export default {
     background: center center no-repeat / cover;
 
     & .form__upload-img-content {
-        transform: translateY(150%);
+        transform: translateY(115%);
         transition: transform 1s;
         @include phablets() {
             transform:translateY(0);

@@ -1,4 +1,5 @@
 import Vue from "vue";
+import axios from 'axios';
 
 const thumbs = {
     template:"#slider-thumbs",
@@ -55,7 +56,7 @@ const info = {
     },
     computed: {
         tagsArray() {
-            return this.currentWork.skills.split(',')
+            return this.currentWork.techs.split(',')
         }
     }
 }
@@ -88,7 +89,7 @@ new Vue({
     methods: {
         makeArrWithRequiredImages(data) {
             return data.map(item => {
-                const requiredPic = require(`../images/content/${item.photo}`);
+                const requiredPic = `https://webdev-api.loftschool.com/${item.photo}`;
                 item.photo = requiredPic;
 
                 return item;
@@ -106,7 +107,8 @@ new Vue({
                 case 'next' :
                 this.currentIndex++;
                 console.log(this.currentIndex);
-                if(this.currentIndex>2 && this.currentIndex<=4) {
+                console.log(this.works.length);
+                if(this.currentIndex>2 && this.currentIndex<=this.works.length-1) {
                     
                     minilist.style.transform = "translateY(20%)";
                     minilist.style.transition = "1s";
@@ -163,15 +165,12 @@ new Vue({
 
     },
     created() {
-        const data = require('../data/works.json');
-        this.works = this.makeArrWithRequiredImages(data);
-
+        // const data = require('../data/works.json');
+        axios.get('https://webdev-api.loftschool.com/works/128')
+        .then(response => {
+            const data = response.data;
+            this.works = this.makeArrWithRequiredImages(data);
+        }).catch(error => console.error(error.message));
         // this.currentWork = this.works[1];
-    },
-    mounted() {
-        // const carousel = document.querySelector('.works__preview-item');
-        // carousel.addEventListener(click, (e)=> {
-        //     console.log(getComputedStyle(carousel.getPropertyValue('width')))
-        // })
     }
 })

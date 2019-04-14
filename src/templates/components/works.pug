@@ -56,12 +56,12 @@ script(type="text/x-template")#slider-btns
 script(type="text/x-template")#slider-info
     .works__right
         tags(
-         :tagsArray="tagsArray"
+         :tagsArray="currentWork.techs"
         )
         .works__desc
             h3.works__desc-title.desc-title {{currentWork.title}}
             .works__desc-text
-                p {{currentWork.desc}}
+                p {{currentWork.description}}
         span.works__link-wrapper
             a(:href="currentWork.link" target="_blank").works__link Посмотреть сайт 
 
