@@ -3,9 +3,11 @@ script(type="text/x-template")#slider-container
         display(
             :works="works"
             :currentWork = "currentWork"
+            :getTransform = "getTransform"
             :currentIndex = "currentIndex"
             @slide="handleSlide"
             @change="handleClick"
+
             
         )
         info(
@@ -25,6 +27,7 @@ script(type="text/x-template")#slider-display
                             thumbs(
                                 :works="reversedWorks"
                                 :currentWork = "currentWork"
+                                :getTransform = "getTransform"
                                 @change="event => $emit('change', event)"
                                
                             )
@@ -36,7 +39,7 @@ script(type="text/x-template")#slider-display
 
 script(type="text/x-template")#slider-thumbs
     .works__preview-minilist-wrapper
-        ul.works__preview-minilist(ref="carousel")                      
+        ul(v-bind:style="getTransform").works__preview-minilist(ref="carousel" )                      
             li.works__preview-item(
                 v-for="work in works" :key="work.id"
                 :class="{active: currentWork.id === work.id}"

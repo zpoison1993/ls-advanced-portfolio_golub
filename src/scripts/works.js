@@ -6,7 +6,8 @@ const thumbs = {
     props: {
         works: Array,
         currentWork: Object,
-        currentIndex: Number
+        currentIndex: Number,
+        getTransform:String
     },
 
 }
@@ -29,7 +30,8 @@ const display = {
     props: {
         works: Array,
         currentWork: Object,
-        currentIndex: Number
+        currentIndex: Number,
+        getTransform:String
     },
     computed: {
         reversedWorks() {
@@ -77,8 +79,9 @@ new Vue({
             var ulMinilist = document.querySelector('.works__preview-minilist')
             let dY = 100/(this.works.length);
             if(this.works.length>3) {
-            return    ulMinilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
-            }
+            // return    ulMinilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
+            return  {transform : `translateY(${-(this.works.length-3)*dY}%)`}
+        }
 
         },
     },
@@ -97,6 +100,15 @@ new Vue({
                 return item;
             });
         },
+
+        // getTransform() {
+        //     var ulMinilist = document.querySelector('.works__preview-minilist')
+        //     let dY = 100/(this.works.length);
+        //     if(this.works.length>3) {
+        //     return    ulMinilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
+        //     }
+
+        // },
         
         handleSlide(direction) {
             const minilist = document.querySelector('.works__preview-minilist')
