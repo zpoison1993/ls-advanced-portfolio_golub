@@ -8,14 +8,7 @@ const thumbs = {
         currentWork: Object,
         currentIndex: Number
     },
-    // methods: {
-    //     getTransform() {
-    //         const dY = this.$refs['carousel'];
-    //         const dYTransform = 
-    //             getComputedStyle(dY).getPropertyValue('transform:translateY');
-    //         console.log(dYTransform)
-    //     }
-    // }
+
 }
 const btns = {
     template:"#slider-btns"
@@ -59,6 +52,7 @@ const info = {
             return this.currentWork.techs.split(',')
         }
     }
+    
 }
 
 new Vue({
@@ -78,7 +72,15 @@ new Vue({
     computed: {
         currentWork() {
            return this.works[this.currentIndex]; 
-        }
+        },
+        getTransform() {
+            var ulMinilist = document.querySelector('.works__preview-minilist')
+            let dY = 100/(this.works.length);
+            if(this.works.length>3) {
+            return    ulMinilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
+            }
+
+        },
     },
     watch: {
         currentIndex(value) {
@@ -95,27 +97,31 @@ new Vue({
                 return item;
             });
         },
-        getTransform(data) {
-        const dY = this.$refs['carousel'];
-        const dYTransform = getComputedStyle(dY).getPropertyValue('translateY');
-        return console.log(dYTransform)
-        },
+        
         handleSlide(direction) {
             const minilist = document.querySelector('.works__preview-minilist')
-            
+            let dY = 100/(this.works.length);
+            // if(this.works.length>3) {
+            //     minilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
+            // }
+
+
             switch (direction) {
                 case 'next' :
                 this.currentIndex++;
                 console.log(this.currentIndex);
                 console.log(this.works.length);
+                
+
+                console.log(dY)
                 if(this.currentIndex>2 && this.currentIndex<=this.works.length-1) {
                     
-                    minilist.style.transform = "translateY(20%)";
+                    minilist.style.transform = `translateY(${dY}%)`;
                     minilist.style.transition = "1s";
 
                 }
-                else if (this.currentIndex>4) {
-                    minilist.style.transform = "translateY(-40%)";
+                else if (this.currentIndex>this.works.length-1) {
+                    minilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
                     minilist.style.transition = "1s";
                 }
 
@@ -128,15 +134,15 @@ new Vue({
                 // getTransform(data);
                 // if(this.currentIndex<3 && this.currentIndex>0) {
                 if(this.currentIndex>2 ) {    
-                    minilist.style.transform = "translateY(-20%)";
+                    minilist.style.transform = `translateY(${-dY}%)`;
                     minilist.style.transition = "1s";
                 }
                 else if(this.currentIndex==2) {
-                    minilist.style.transform = "translateY(-40%)";
+                    minilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
                     minilist.style.transition = "1s";
                 }
                 else if (this.currentIndex<0) {
-                    minilist.style.transform = "translateY(20%)";
+                    minilist.style.transform = `translateY(${dY}%)`;
                     minilist.style.transition = "1s";
                 }
                 break;
@@ -171,6 +177,11 @@ new Vue({
             const data = response.data;
             this.works = this.makeArrWithRequiredImages(data);
         }).catch(error => console.error(error.message));
+        
         // this.currentWork = this.works[1];
+    },
+    mounted() {
+        getTransform()
+
     }
 })

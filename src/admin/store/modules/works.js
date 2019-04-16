@@ -106,8 +106,15 @@ export default {
       },
   
       async editWork({ commit }, workData) {
+        const formData = new FormData();
+
+        Object.keys(workData).forEach(key => {
+            formData.append(key,workData[key]);
+        })
+
+
         try {
-          const response = await this.$axios.post(`/works/${workData.id}`, workData);
+          const response = await this.$axios.post(`/works/${workData.id}`, formData);
           commit("EDIT_WORK", response.data.work);
           return response;
         } catch (error) {

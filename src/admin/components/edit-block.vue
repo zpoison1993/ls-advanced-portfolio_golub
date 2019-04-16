@@ -169,32 +169,17 @@ export default {
     },
     createWorkFormData() {
       const formData = new FormData();
-    //   if (this.editBlock.editMode) {
-    //     formData.append("title", this.changedWork.title);
-    //   }
-    //   else {        
+   
         formData.append("title", this.work.title);
-    //   }
-    //   if (this.editBlock.editMode) {
-    //     formData.append("techs", this.changedWork.techs);
-    //   } else {
+
         formData.append("techs", this.work.techs);
-    //   }
-    //   if (this.editBlock.editMode) {
-    //     formData.append("photo", this.changedWork.photo);
-    //   } else {
-          formData.append("photo", this.work.photo);
-    //   }
-    //   if (this.editBlock.editMode) {
-    //     formData.append("link", this.changedWork.link);
-    //   } else {
+
+        formData.append("photo", this.work.photo);
+
         formData.append("link", this.work.link);  
-    //   }
-    //   if (this.editBlock.editMode) {
-    //       formData.append("description", this.changedWork.description);
-    //   } else {
-          formData.append("description", this.work.description);
-    //   }
+
+        formData.append("description", this.work.description);
+
       
       return formData;
     },
@@ -205,11 +190,11 @@ export default {
     async saveEditedWork() {
       if ((await this.$validate()) === false) return;
       try {
-        const workData = {
-          id: this.work.id,
-          data: this.createWorkFormData()
-        };
-        await this.editWork(workData);
+        // const workData = {
+        //   id: this.work.id,
+        //   data: this.createWorkFormData()
+        // };
+        await this.editWork(this.work);
         this['CLOSE_FORM']();
       } catch (error) {
         console.error(error.message);
