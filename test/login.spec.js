@@ -25,6 +25,24 @@ test('На странице авторизации есть кнопка "Отп
         });
 });
 
+test('На странице авторизации есть все необходимые поля', () => {
+    return client
+        .isExisting('#login')
+        .isExisting('#pass')
+        .then(browsers => {
+            for (const browserName in browsers) {
+                expect(browsers[browserName]).toBe(true);
+            }
+        })
+
+        .screenshot()
+        .then(browsers => {
+            for (const browserName in browsers) {
+                fs.writeFileSync(`./screenshots/form-rows_${browserName}_are_visible.png`, browsers[browserName].value, 'base64');
+            }
+        });
+});
+
 
 
 afterAll(() => {

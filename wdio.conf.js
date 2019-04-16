@@ -1,6 +1,6 @@
 const shared = {
-    host: 'localhost',
-    port: 8081,
+    host: '127.0.0.1',
+    port: 8000,
     path: '/wd/hub',
     coloredLogs: true,
     screenshotPath: './errorShots/',
@@ -27,12 +27,12 @@ exports.chrome = {
     }
 };
 
-exports.opera = {
-    ...shared,
-    desiredCapabilities: {
-        browserName: 'opera',
-        operaOptions: {
-            args: ["disable-gpu", 'no-sandbox', 'disable-setuid-sandbox', 'incognito', 'disable-dev-shm-usage']
-        }
-    }
-};
+// exports.opera = {
+//     ...shared,
+//     desiredCapabilities: {
+//         browserName: 'opera',
+//         operaOptions: {
+//             args: ["disable-gpu", 'no-sandbox', 'disable-setuid-sandbox', 'incognito', 'disable-dev-shm-usage']
+//         }
+//     }
+// };

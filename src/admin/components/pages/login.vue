@@ -4,14 +4,14 @@
             button(type="button").login__form-close
             form.login__form(@submit.prevent="login")
                 h1.login__form-title Авторизация
-                .login__row
+                .login__row#login
                     app-input(
                     title="Логин"
                     icon="user"
                     v-model="user.name"
                     :errorText="validation.firstError('user.name')"
                     )            
-                .login__row
+                .login__row#pass
                     app-input(
                     title="Пароль"
                     icon="keyy"
@@ -43,6 +43,8 @@ export default {
       user: {
         name: "vgolub032019",
         password: "Pentagonkuritdvajdy1"
+        // name: "",
+        // password: ""
       }
     };
   },

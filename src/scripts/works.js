@@ -14,10 +14,16 @@ const thumbs = {
 const btns = {
     template:"#slider-btns"
 }
-const tags = {
+const tagsList = {
     template:"#slider-tags",
     props: {
-        tagsArray: Array
+        tags: String
+    },
+    computed: {
+        tagsArray() {
+            return this.tags.split(',')
+            // return this.currentWork.techs
+        }
     }
 }
 
@@ -44,15 +50,10 @@ const display = {
 const info = {
     template:"#slider-info",
     components: {
-        tags
+        tagsList
     },
     props: {
         currentWork: Object
-    },
-    computed: {
-        tagsArray() {
-            return this.currentWork.techs.split(',')
-        }
     }
     
 }
