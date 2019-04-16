@@ -1,5 +1,6 @@
 .tech-list {
     display: flex;
+    flex-wrap: wrap;
     color: $text-color;
     font-weight: 600;
     @include tablets() {
@@ -9,6 +10,7 @@
 
 .tech-list__item {
     margin-right: 2rem;
+    margin-bottom: 1rem;
     @include phones() {
         margin-right: 1rem;
     }

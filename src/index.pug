@@ -36,9 +36,10 @@ html(lang="en")
                   nav.nav
                     ul.nav__list
                       - var menu = ['Главная','Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
-                      each item in menu
+                      - var menuLinks = ['#hero','#about','#skills','#works','#reviews','#contacts']
+                      each item,index in menu
                         li.nav__item
-                          a(href="").nav__link #{item}
+                          a(href=`${menuLinks[index]}`).nav__link #{item}
                 .header__links
                   ul.socials
                     - var socials = ['insta','vk','github'];
@@ -52,7 +53,7 @@ html(lang="en")
                     </button>
                 
 
-          section.fullscreen-section.hero
+          section.fullscreen-section.hero#hero
             .container.hero__container
               
 
@@ -75,9 +76,10 @@ html(lang="en")
                   nav.nav
                     ul.nav__list.nav-mobile
                       - var menu = ['Главная','Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
-                      each item in menu
+                      - var menuLinks = ['#hero','#about','#skills','#works','#reviews','#contacts']
+                      each item,index in menu
                         li.nav__item.mobile-menu__item
-                          a(href="").nav__link #{item}
+                          a(href=`${menuLinks[index]}`).nav__link #{item}
                 .mobile-menu__socials
                   ul.socials.socials--mobile
                     - var socials = ['insta','vk','github'];
@@ -88,7 +90,7 @@ html(lang="en")
                 
 
 
-          section.fullscreen-section.about
+          section.fullscreen-section.about#about
             .container.about__container
               .about__left
                 .user
@@ -123,7 +125,7 @@ html(lang="en")
             polygon(
               points="0,100 1000,100 1000,0"
             )    
-        section.values
+        section.values#skills
           .container.values__container
             .values__title
               h2.section-title.values__title-text.section-title--small Чем я могу быть полезен вам 
@@ -132,7 +134,7 @@ html(lang="en")
             .values__widget
               #skills-component
               
-        section.works
+        section.works#works
           - var workItems = [1, 2, 3, 4, 5];
           - 
             var previewsFiles = [
@@ -159,7 +161,7 @@ html(lang="en")
                 points="0,100 0,0 1000,0"
               )    
           #reviews
-          section.contact
+          section.contact#contacts
             .container.contact__container
               .contact__title
                 h2.section-title Связаться со мной
@@ -168,16 +170,16 @@ html(lang="en")
                   .contact__form-col.contact__form-col--name
                     label.contact__form-element
                       span.contact__form-label Введите Ваше имя
-                      input.contact__form-input.contact__form-input--name(type="text" name="name" placeholder="Ковальчук Дмитрий")
+                      input.contact__form-input.contact__form-input--name(type="text" name="name" placeholder="Ваше Имя" required)
                   .contact__form-col.contact__form-col--email
                     label.contact__form-element
                       span.contact__form-label Введите Ваш email
-                      input.contact__form-input.contact__form-input--email(type="text" name="email" placeholder="loftschool@study.com")
+                      input.contact__form-input.contact__form-input--email(type="text" name="email" placeholder="Ваш email" required)
                 .contact__form-row
                   .contact__form-col.contact__form-col--comment
                      label.contact__form-element
                       span.contact__form-label Сообщение к письму
-                      textarea.contact__form-textarea(name="comment" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
+                      textarea.contact__form-textarea(name="comment" placeholder="Введите Ваши вопросы, пожелания или предложения о сотрудничестве" required)
                 .contact__form-row.contact__form-row--submit
                   button(type="submit").contact__form--submit ОТПРАВИТЬ
 
@@ -193,9 +195,9 @@ html(lang="en")
               .footer__menu
                 nav.nav.nav--color-white
                   ul.nav__list
-                    each item in menu
+                    each item,index in menu
                       li.nav__item
-                        a(href="").nav__link #{item}
+                        a(href=`${menuLinks[index]}`).nav__link #{item}
               .footer__data-columns
                 .footer__data-col
                   .footer__text

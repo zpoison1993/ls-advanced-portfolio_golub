@@ -44,7 +44,7 @@
                 content: attr(data-slide);
                 position: absolute;
                 top:-20%;
-                right:-20%;
+                right:-15%;
                 font-size: 300px;
                 font-weight: 800;
                 color:#f0f0f0;
@@ -91,7 +91,11 @@
 }
 
 .works__preview {
+    width:787px;
     position: relative;
+    @include desktopMini() {
+        width: 100%;
+    }
     @include phones() {
         position: static;
     }
@@ -99,7 +103,21 @@
 
 .works__preview-img {
     width: 100%;
-    // position: relative;
+    position: relative;
+    // width: 830px;
+    // height: 528px;
+    // @include desktop() {
+        // width: 553px;
+        // height: 352px;
+    // }
+    // @include desktopMini() {
+    //     width: 100%;
+    //     max-height: 524px;  
+    // }
+    // @include phones() {
+    //     width: 100%;
+    //     max-height: 241px;  
+    // }
 }
 
 .works__preview-minilist-wrapper {

@@ -3,9 +3,11 @@ script(type="text/x-template")#slider-container
         display(
             :works="works"
             :currentWork = "currentWork"
+            :getTransform = "getTransform"
             :currentIndex = "currentIndex"
             @slide="handleSlide"
             @change="handleClick"
+
             
         )
         info(
@@ -25,6 +27,7 @@ script(type="text/x-template")#slider-display
                             thumbs(
                                 :works="reversedWorks"
                                 :currentWork = "currentWork"
+                                :getTransform = "getTransform"
                                 @change="event => $emit('change', event)"
                                
                             )
@@ -36,7 +39,7 @@ script(type="text/x-template")#slider-display
 
 script(type="text/x-template")#slider-thumbs
     .works__preview-minilist-wrapper
-        ul.works__preview-minilist(ref="carousel")                      
+        ul(v-bind:style="getTransform").works__preview-minilist(ref="carousel" )                      
             li.works__preview-item(
                 v-for="work in works" :key="work.id"
                 :class="{active: currentWork.id === work.id}"
@@ -55,18 +58,19 @@ script(type="text/x-template")#slider-btns
 
 script(type="text/x-template")#slider-info
     .works__right
-        tags(
-         :tagsArray="tagsArray"
+        tagsList(
+         :tags='currentWork.techs'
+        
         )
         .works__desc
             h3.works__desc-title.desc-title {{currentWork.title}}
             .works__desc-text
-                p {{currentWork.desc}}
+                p {{currentWork.description}}
         span.works__link-wrapper
             a(:href="currentWork.link" target="_blank").works__link Посмотреть сайт 
 
 script(type="text/x-template")#slider-tags
     .works__tech
         ul.tech-list
-            li.tech-list__item.tech-item(v-for="tag in tagsArray") 
-                span.tech-stack {{tag}}                 
+            li.tech-list__item.tech-item(v-for="(tag,index) in tagsArray" :key="index") {{tag}}
+                //- span.tech-stack {{tag}}(                

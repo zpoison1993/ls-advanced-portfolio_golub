@@ -11,7 +11,7 @@ script(type="text/x-template")#reviews-list
                         button(type="button" @click="next()").reviews__btn.reviews__btn--right
                             +icon('arrow-down', 'arrow arrow--right')
             .reviews__slider-wrapper
-                flickity(ref="flickity" :options="flickityOptions").reviews__slider
+                flickity(ref="flickity" :options="flickityOptions" v-if="Object.keys(reviews).length > 0").reviews__slider
                     .reviews__slider-item.carousel-cell(v-for="review in reviews" :key="review.id")
                         review(
                             :review="review"
@@ -19,12 +19,14 @@ script(type="text/x-template")#reviews-list
 
 script(type="text/x-template")#review
     .review__frame
-        q.reviews__quote {{review.content}}
+        q.reviews__quote {{review.text}}
         .reviews__author-wrapper
             .reviews__author
                 .reviews__author-photoframe
-                    img(:src="review.photo", alt="Фотография человека,оставившего отзыв").reviews__author-img
+                    img(:src="review.photo", alt="Фотография человека,оставившего отзыв" style="object-fit:cover").reviews__author-img
                     //- +image(`${item.photo}`, 'reviews__author-img', item.name)
                 .reviews__bio
-                    span.reviews__name {{review.name}}
-                    span.reviews__position {{review.position}}
+                    span.reviews__name {{review.author}}
+                    span.reviews__position {{review.occ}}
+
+                    

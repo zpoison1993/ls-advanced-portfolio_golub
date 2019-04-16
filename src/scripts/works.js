@@ -1,28 +1,29 @@
 import Vue from "vue";
+import axios from 'axios';
 
 const thumbs = {
     template:"#slider-thumbs",
     props: {
         works: Array,
         currentWork: Object,
-        currentIndex: Number
+        currentIndex: Number,
+        getTransform:String
     },
-    // methods: {
-    //     getTransform() {
-    //         const dY = this.$refs['carousel'];
-    //         const dYTransform = 
-    //             getComputedStyle(dY).getPropertyValue('transform:translateY');
-    //         console.log(dYTransform)
-    //     }
-    // }
+
 }
 const btns = {
     template:"#slider-btns"
 }
-const tags = {
+const tagsList = {
     template:"#slider-tags",
     props: {
-        tagsArray: Array
+        tags: String
+    },
+    computed: {
+        tagsArray() {
+            return this.tags.split(',')
+            // return this.currentWork.techs
+        }
     }
 }
 
@@ -35,7 +36,8 @@ const display = {
     props: {
         works: Array,
         currentWork: Object,
-        currentIndex: Number
+        currentIndex: Number,
+        getTransform:String
     },
     computed: {
         reversedWorks() {
@@ -48,16 +50,12 @@ const display = {
 const info = {
     template:"#slider-info",
     components: {
-        tags
+        tagsList
     },
     props: {
         currentWork: Object
-    },
-    computed: {
-        tagsArray() {
-            return this.currentWork.skills.split(',')
-        }
     }
+    
 }
 
 new Vue({
@@ -77,7 +75,16 @@ new Vue({
     computed: {
         currentWork() {
            return this.works[this.currentIndex]; 
+        },
+        getTransform() {
+            var ulMinilist = document.querySelector('.works__preview-minilist')
+            let dY = 100/(this.works.length);
+            if(this.works.length>3) {
+            // return    ulMinilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
+            return  {transform : `translateY(${-(this.works.length-3)*dY}%)`}
         }
+
+        },
     },
     watch: {
         currentIndex(value) {
@@ -88,32 +95,46 @@ new Vue({
     methods: {
         makeArrWithRequiredImages(data) {
             return data.map(item => {
-                const requiredPic = require(`../images/content/${item.photo}`);
+                const requiredPic = `https://webdev-api.loftschool.com/${item.photo}`;
                 item.photo = requiredPic;
 
                 return item;
             });
         },
-        getTransform(data) {
-        const dY = this.$refs['carousel'];
-        const dYTransform = getComputedStyle(dY).getPropertyValue('translateY');
-        return console.log(dYTransform)
-        },
+
+        // getTransform() {
+        //     var ulMinilist = document.querySelector('.works__preview-minilist')
+        //     let dY = 100/(this.works.length);
+        //     if(this.works.length>3) {
+        //     return    ulMinilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
+        //     }
+
+        // },
+        
         handleSlide(direction) {
             const minilist = document.querySelector('.works__preview-minilist')
-            
+            let dY = 100/(this.works.length);
+            // if(this.works.length>3) {
+            //     minilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
+            // }
+
+
             switch (direction) {
                 case 'next' :
                 this.currentIndex++;
                 console.log(this.currentIndex);
-                if(this.currentIndex>2 && this.currentIndex<=4) {
+                console.log(this.works.length);
+                
+
+                console.log(dY)
+                if(this.currentIndex>2 && this.currentIndex<=this.works.length-1) {
                     
-                    minilist.style.transform = "translateY(20%)";
+                    minilist.style.transform = `translateY(${dY}%)`;
                     minilist.style.transition = "1s";
 
                 }
-                else if (this.currentIndex>4) {
-                    minilist.style.transform = "translateY(-40%)";
+                else if (this.currentIndex>this.works.length-1) {
+                    minilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
                     minilist.style.transition = "1s";
                 }
 
@@ -126,15 +147,15 @@ new Vue({
                 // getTransform(data);
                 // if(this.currentIndex<3 && this.currentIndex>0) {
                 if(this.currentIndex>2 ) {    
-                    minilist.style.transform = "translateY(-20%)";
+                    minilist.style.transform = `translateY(${-dY}%)`;
                     minilist.style.transition = "1s";
                 }
                 else if(this.currentIndex==2) {
-                    minilist.style.transform = "translateY(-40%)";
+                    minilist.style.transform = `translateY(${-(this.works.length-3)*dY}%)`;
                     minilist.style.transition = "1s";
                 }
                 else if (this.currentIndex<0) {
-                    minilist.style.transform = "translateY(20%)";
+                    minilist.style.transform = `translateY(${dY}%)`;
                     minilist.style.transition = "1s";
                 }
                 break;
@@ -163,15 +184,17 @@ new Vue({
 
     },
     created() {
-        const data = require('../data/works.json');
-        this.works = this.makeArrWithRequiredImages(data);
-
+        // const data = require('../data/works.json');
+        axios.get('https://webdev-api.loftschool.com/works/128')
+        .then(response => {
+            const data = response.data;
+            this.works = this.makeArrWithRequiredImages(data);
+        }).catch(error => console.error(error.message));
+        
         // this.currentWork = this.works[1];
     },
     mounted() {
-        // const carousel = document.querySelector('.works__preview-item');
-        // carousel.addEventListener(click, (e)=> {
-        //     console.log(getComputedStyle(carousel.getPropertyValue('width')))
-        // })
+        getTransform()
+
     }
 })
